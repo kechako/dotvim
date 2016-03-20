@@ -15,6 +15,7 @@ call dein#begin(expand('~/.vim/dein'))
 call dein#add('Shougo/dein.vim')
 
 " Add or remove your plugins here:
+call dein#add('Shougo/neocomplete.vim')
 call dein#add('fatih/vim-go')
 
 " Required:
