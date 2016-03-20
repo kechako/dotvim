@@ -59,6 +59,8 @@ set laststatus=2
 " 補完の一覧表示
 set wildmenu
 set wildmode=list:full
+" netrwhist の場所
+let g:netrw_home=expand("$HOME/.vim")
 
 " マウス
 if has('mouse')
