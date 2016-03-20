@@ -15,6 +15,7 @@ call dein#begin(expand('~/.vim/dein'))
 call dein#add('Shougo/dein.vim')
 
 " Add or remove your plugins here:
+call dein#add('altercation/vim-colors-solarized')
 call dein#add('Shougo/neocomplete.vim')
 call dein#add('fatih/vim-go')
 
@@ -67,6 +68,9 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   " 検索時のハイライト表示を on
   set hlsearch
+  " カラーテーマ設定
+  set background=dark
+  colorscheme solarized
 endif
 
 " クリップボードが有効な場合
