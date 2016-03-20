@@ -2,3 +2,4 @@ backup/*
 swap/*
 undo/*
 .netrwhist
+dein/*
