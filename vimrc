@@ -16,6 +16,7 @@ call dein#add('Shougo/dein.vim')
 
 " Add or remove your plugins here:
 call dein#add('altercation/vim-colors-solarized')
+call dein#add('itchyny/lightline.vim')
 call dein#add('Shougo/neocomplete.vim')
 call dein#add('fatih/vim-go')
 
@@ -53,6 +54,8 @@ set ruler
 set showcmd
 " インクリメタルサーチを実行
 set incsearch
+" ステータス行の表示
+set laststatus=2
 " 補完の一覧表示
 set wildmenu
 set wildmode=list:full
@@ -71,6 +74,10 @@ if &t_Co > 2 || has("gui_running")
   " カラーテーマ設定
   set background=dark
   colorscheme solarized
+  " lightline.vim
+  let g:lightline = {
+    \ 'colorscheme': 'solarized'
+    \ }
 endif
 
 " クリップボードが有効な場合
