@@ -19,6 +19,7 @@ call dein#add('altercation/vim-colors-solarized')
 call dein#add('itchyny/lightline.vim')
 call dein#add('Shougo/neocomplete.vim')
 call dein#add('fatih/vim-go')
+call dein#add('tpope/vim-rails')
 
 " Required:
 call dein#end()
