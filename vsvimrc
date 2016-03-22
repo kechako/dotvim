@@ -1,0 +1,17 @@
+" insert mode でバックスペースで削除可能な文字の設定
+set backspace=indent,eol,start
+" 行番号表示
+set number
+" コマンドライン履歴を50行保存
+set history=50
+" カーソル位置を常時表示
+set ruler
+" 入力中のコマンドを表示
+set showcmd
+" インクリメタルサーチを実行
+set incsearch
+" 検索時のハイライト表示を on
+set hlsearch
+" Yank と Clipboard を連携
+set clipboard=unnamed
+
