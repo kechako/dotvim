@@ -53,6 +53,8 @@ set history=50
 set ruler
 " 入力中のコマンドを表示
 set showcmd
+" バッファー切替時に hidden にする
+set hidden
 " インクリメタルサーチを実行
 set incsearch
 " ステータス行の表示
