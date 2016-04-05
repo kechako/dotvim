@@ -51,6 +51,10 @@ set undodir=$HOME/.vim/undo
 set history=50
 " カーソル位置を常時表示
 set ruler
+" カーソル行をハイライト
+set cursorline
+" タブを常時表示
+set showtabline=2
 " 画面上下のスクロール開始位置のオフセット
 set scrolloff=3
 " 入力中のコマンドを表示
