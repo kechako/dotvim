@@ -65,6 +65,8 @@ set hidden
 set incsearch
 " ステータス行の表示
 set laststatus=2
+" ファイルの末尾に自動で改行を入れない
+set nofixendofline
 " 補完の一覧表示
 set wildmenu
 set wildmode=list:full
