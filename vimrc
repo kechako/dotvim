@@ -3,39 +3,8 @@ if &compatible
   set nocompatible
 endif
 
-"dein Scripts-----------------------------
-" Required:
-set runtimepath^=~/.vim/dein/repos/github.com/Shougo/dein.vim
-
-" Required:
-call dein#begin(expand('~/.vim/dein'))
-
-" Let dein manage dein
-" Required:
-call dein#add('Shougo/dein.vim')
-
-" Add or remove your plugins here:
-call dein#add('altercation/vim-colors-solarized')
-call dein#add('itchyny/lightline.vim')
-call dein#add('Shougo/neocomplete.vim')
-call dein#add('fatih/vim-go')
-call dein#add('tpope/vim-rails')
-
-" Required:
-call dein#end()
-
-" Required:
-filetype plugin indent on
-
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
-"End dein Scripts--------------------
-
 " insert mode でバックスペースで削除可能な文字の設定
 set backspace=indent,eol,start
-
 " 行番号表示
 set number
 " スワップファイルを作成
