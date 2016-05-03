@@ -129,8 +129,7 @@ else
 endif " has("autocmd")
 
 if has('langmap') && exists('+langnoremap')
-  " Prevent that the langmap option applies to characters that result from a
-  " mapping.  If unset (default), this may break plugins (but it's backward
-  " compatible).
+  " langmap の文字がマッピングの結果として適用されないようにする
+  " (このオプションは後方互換性のためデフォルトはOFF)
   set langnoremap
 endif
