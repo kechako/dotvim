@@ -13,3 +13,6 @@
 [submodule "pack/pack/start/vim-color-solarized"]
 	path = pack/pack/start/vim-color-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "pack/pack/start/vim-toml"]
+	path = pack/pack/start/vim-toml
+	url = https://github.com/cespare/vim-toml
