@@ -42,6 +42,14 @@ set wildmode=list:full
 " netrwhist の場所
 let g:netrw_home=expand("$HOME/.vim")
 
+" モード変更時にカーソルを変更する設定
+if &term =~ 'xterm\|screen'
+  let &t_ti .= "\e[1 q" " termcap mode に入った時
+  let &t_SI .= "\e[5 q" " insert mode に入った時
+  let &t_EI .= "\e[1 q" " insert mode を抜けた時
+  let &t_te .= "\e[0 q" " termcap mode を抜けた時
+endif
+
 " マウス
 if has('mouse')
   set mouse=a
