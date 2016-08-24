@@ -78,15 +78,15 @@ if has("autocmd")
   " インデントファイルを使う
   filetype plugin indent on
 
-  " autocmd group を設定
-  augroup vimrcEx
-  au!
+  " カーソル位置を復元する設定
+  augroup RestoreCursorPos
+    autocmd!
 
-  " ファイルを開いた時に、前回のカーソル位置に移動する
-  autocmd BufReadPost *
-    \ if line("'\"") >= 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
+    " ファイルを開いた時に、前回のカーソル位置に移動する
+    autocmd BufReadPost *
+      \ if line("'\"") >= 1 && line("'\"") <= line("$") |
+      \   exe "normal! g`\"" |
+      \ endif
 
   augroup END
 
