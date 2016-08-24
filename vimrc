@@ -82,9 +82,6 @@ if has("autocmd")
   augroup vimrcEx
   au!
 
-  " すべてのテキストファイルで78文字で折り返す
-  autocmd FileType text setlocal textwidth=78
-
   " ファイルを開いた時に、前回のカーソル位置に移動する
   autocmd BufReadPost *
     \ if line("'\"") >= 1 && line("'\"") <= line("$") |
