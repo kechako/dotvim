@@ -1,8 +1,3 @@
-" vi 互換モードをOFFに
-if &compatible
-  set nocompatible
-endif
-
 " insert mode でバックスペースで削除可能な文字の設定
 set backspace=indent,eol,start
 " 行番号表示
