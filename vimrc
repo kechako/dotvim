@@ -37,6 +37,11 @@ set wildmode=list:full
 " netrwhist の場所
 let g:netrw_home=expand("$HOME/.vim")
 
+" rtf-highlight の設定
+let g:rtfh_theme = 'bright'
+let g:rtfh_font = 'Menlo'
+let g:rtfh_size = '24'
+
 " モード変更時にカーソルを変更する設定
 if &term =~ 'xterm\|screen'
   let &t_ti .= "\e[1 q" " termcap mode に入った時
