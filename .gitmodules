@@ -19,3 +19,6 @@
 [submodule "pack/pack/start/tagbar"]
 	path = pack/pack/start/tagbar
 	url = https://github.com/majutsushi/tagbar
+[submodule "pack/pack/start/rtf-highlight"]
+	path = pack/pack/start/rtf-highlight
+	url = https://github.com/dharanasoft/rtf-highlight.git
