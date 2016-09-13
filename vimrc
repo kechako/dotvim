@@ -61,6 +61,14 @@ if &t_Co > 2 || has("gui_running")
   colorscheme solarized
   " lightline.vim
   let g:lightline = {
+    \ 'active':{
+    \   'right': [ [ 'lineinfo' ],
+    \              [ 'percent' ],
+    \              [ 'charinfo', 'fileformat', 'fileencoding', 'filetype' ] ]
+    \ },
+    \ 'component': {
+    \   'charinfo': 'U+%04B'
+    \ },
     \ 'colorscheme': 'solarized'
     \ }
 endif
