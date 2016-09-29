@@ -1,7 +1,5 @@
 " insert mode でバックスペースで削除可能な文字の設定
 set backspace=indent,eol,start
-" 行番号表示
-set number
 " スワップファイルを作成
 set swapfile
 set directory=$HOME/.vim/swap
