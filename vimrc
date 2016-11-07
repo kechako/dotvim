@@ -35,6 +35,10 @@ set wildmode=list:full
 " netrwhist の場所
 let g:netrw_home=expand("$HOME/.vim")
 
+" 非表示文字の設定
+set list
+set listchars=tab:\ \ ,trail:-,nbsp:%
+
 " rtf-highlight の設定
 let g:rtfh_theme = 'bright'
 let g:rtfh_font = 'Menlo'
