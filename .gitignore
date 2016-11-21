@@ -4,8 +4,8 @@ swap/*
 !swap/.keep
 undo/*
 !undo/.keep
-
-.netrwhist
+netrw/*
+!netrw/.keep
 
 dein/*
 !dein/repos

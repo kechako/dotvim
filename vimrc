@@ -32,8 +32,10 @@ set nofixendofline
 " 補完の一覧表示
 set wildmenu
 set wildmode=list:full
-" netrwhist の場所
-let g:netrw_home=expand("$HOME/.vim")
+" netrw にてファイル名、サイズ、タイムスタンプをデフォルト表示
+let g:netrw_liststyle=1
+" .netrwhist 及び .netrwbook の格納場所
+let g:netrw_home=expand("$HOME/.vim/netrw")
 
 " 非表示文字の設定
 set list
