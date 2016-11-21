@@ -37,6 +37,13 @@ let g:netrw_liststyle=1
 " .netrwhist 及び .netrwbook の格納場所
 let g:netrw_home=expand("$HOME/.vim/netrw")
 
+" grep プログラム設定
+if executable('jvgrep')
+  set grepprg=jvgrep
+endif
+" grep を silent で実行する Grep コマンドを定義
+command! -nargs=+ Grep execute 'silent grep! <args>'
+
 " 非表示文字の設定
 set list
 set listchars=tab:\ \ ,trail:-,nbsp:%
@@ -94,6 +101,12 @@ if has("autocmd")
   " ファイルタイププラグインを使用する
   " インデントファイルを使う
   filetype plugin indent on
+
+  " quickfix を自動で開く設定
+  augroup QuickFixCmd
+    autocmd!
+    autocmd QuickFixCmdPost *grep* cwindow
+  augroup END
 
   " カーソル位置を復元する設定
   augroup RestoreCursorPos
