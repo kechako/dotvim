@@ -32,6 +32,8 @@ set nofixendofline
 " 補完の一覧表示
 set wildmenu
 set wildmode=list:full
+" 曖昧な幅の文字を double width で表示
+set ambiwidth=double
 " netrw にてファイル名、サイズ、タイムスタンプをデフォルト表示
 let g:netrw_liststyle=1
 " .netrwhist 及び .netrwbook の格納場所
