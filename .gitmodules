@@ -1,27 +1,27 @@
-[submodule "pack/pack/start/lightline.vim"]
-	path = pack/pack/start/lightline.vim
+[submodule "pack/plugins/start/lightline.vim"]
+	path = pack/plugins/start/lightline.vim
 	url = https://github.com/itchyny/lightline.vim.git
-[submodule "pack/pack/start/vim-go"]
-	path = pack/pack/start/vim-go
+[submodule "pack/plugins/start/vim-go"]
+	path = pack/plugins/start/vim-go
 	url = https://github.com/fatih/vim-go.git
-[submodule "pack/pack/start/vim-rails"]
-	path = pack/pack/start/vim-rails
+[submodule "pack/plugins/start/vim-rails"]
+	path = pack/plugins/start/vim-rails
 	url = https://github.com/tpope/vim-rails.git
-[submodule "pack/pack/start/vim-color-solarized"]
-	path = pack/pack/start/vim-color-solarized
+[submodule "pack/plugins/start/vim-color-solarized"]
+	path = pack/plugins/start/vim-color-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
-[submodule "pack/pack/start/vim-toml"]
-	path = pack/pack/start/vim-toml
+[submodule "pack/plugins/start/vim-toml"]
+	path = pack/plugins/start/vim-toml
 	url = https://github.com/cespare/vim-toml
-[submodule "pack/pack/start/SimpleAutoComplPop"]
-	path = pack/pack/start/SimpleAutoComplPop
+[submodule "pack/plugins/start/SimpleAutoComplPop"]
+	path = pack/plugins/start/SimpleAutoComplPop
 	url = https://github.com/roxma/SimpleAutoComplPop.git
-[submodule "pack/pack/start/tagbar"]
-	path = pack/pack/start/tagbar
+[submodule "pack/plugins/start/tagbar"]
+	path = pack/plugins/start/tagbar
 	url = https://github.com/majutsushi/tagbar
-[submodule "pack/pack/start/rtf-highlight"]
-	path = pack/pack/start/rtf-highlight
+[submodule "pack/plugins/start/rtf-highlight"]
+	path = pack/plugins/start/rtf-highlight
 	url = https://github.com/dharanasoft/rtf-highlight.git
-[submodule "pack/pack/start/vim-elixir"]
-	path = pack/pack/start/vim-elixir
+[submodule "pack/plugins/start/vim-elixir"]
+	path = pack/plugins/start/vim-elixir
 	url = https://github.com/elixir-lang/vim-elixir
