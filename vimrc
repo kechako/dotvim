@@ -38,6 +38,8 @@ set ambiwidth=double
 let g:netrw_liststyle=1
 " .netrwhist 及び .netrwbook の格納場所
 let g:netrw_home=expand("$HOME/.vim/netrw")
+" quickfix
+set switchbuf=usetab,newtab
 
 " grep プログラム設定
 if executable('jvgrep')
