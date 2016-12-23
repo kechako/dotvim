@@ -148,5 +148,9 @@ let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
+" vim-gfm-syntax
+let g:markdown_fenced_languages = ['go', 'ruby']
+let g:gfm_syntax_emoji_conceal = 1
+
 let g:tagbar_left = 0
 let g:tagbar_autofocus = 1
