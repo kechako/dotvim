@@ -28,3 +28,6 @@
 [submodule "pack/plugins/start/vim-gfm-syntax"]
 	path = pack/plugins/start/vim-gfm-syntax
 	url = https://github.com/rhysd/vim-gfm-syntax.git
+[submodule "pack/plugins/start/vim-gofmt"]
+	path = pack/plugins/start/vim-gofmt
+	url = https://github.com/haya14busa/vim-gofmt.git
