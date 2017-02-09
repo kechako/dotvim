@@ -13,9 +13,6 @@
 [submodule "pack/plugins/start/vim-toml"]
 	path = pack/plugins/start/vim-toml
 	url = https://github.com/cespare/vim-toml
-[submodule "pack/plugins/start/SimpleAutoComplPop"]
-	path = pack/plugins/start/SimpleAutoComplPop
-	url = https://github.com/roxma/SimpleAutoComplPop.git
 [submodule "pack/plugins/start/tagbar"]
 	path = pack/plugins/start/tagbar
 	url = https://github.com/majutsushi/tagbar
