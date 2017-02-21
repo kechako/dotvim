@@ -141,7 +141,8 @@ if has('langmap') && exists('+langnoremap')
 endif
 
 " vim-go
-let g:go_fmt_autosave = 0
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "goreturns"
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -149,16 +150,6 @@ let g:go_highlight_structs = 1
 let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-
-" vim-gofmt
-let g:gofmt_formatters = [
-\   { 'cmd': 'gofmt', 'args': ['-s', '-w'] },
-\   { 'cmd': 'goimports', 'args': ['-w'] },
-\ ]
-augroup vim-gofmt
-  autocmd!
-  autocmd BufWritePre *.go :Fmt
-augroup END
 
 " vim-gfm-syntax
 let g:markdown_fenced_languages = ['go', 'ruby']
