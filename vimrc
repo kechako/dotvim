@@ -156,6 +156,9 @@ let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
+" neocomplete
+let g:neocomplete#max_keyword_width = 120
+
 " typescript-vim
 let g:typescript_indent_disable = 1
 
