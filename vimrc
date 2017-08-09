@@ -112,7 +112,7 @@ if has("autocmd")
   " quickfix を自動で開く設定
   augroup QuickFixCmd
     autocmd!
-    autocmd QuickFixCmdPost *grep* cwindow
+    autocmd QuickFixCmdPost *grep*,make cwindow
   augroup END
 
   " カーソル位置を復元する設定
