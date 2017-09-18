@@ -40,3 +40,6 @@
 [submodule "pack/plugins/start/tsuquyomi"]
 	path = pack/plugins/start/tsuquyomi
 	url = https://github.com/Quramy/tsuquyomi.git
+[submodule "pack/plugins/start/twitvim"]
+	path = pack/plugins/start/twitvim
+	url = https://github.com/twitvim/twitvim.git

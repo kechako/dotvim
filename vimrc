@@ -168,3 +168,6 @@ let g:gfm_syntax_emoji_conceal = 1
 
 let g:tagbar_left = 0
 let g:tagbar_autofocus = 1
+
+" TwitVim
+let twitvim_enable_ruby = 1
