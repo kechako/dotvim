@@ -156,6 +156,10 @@ let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
+" CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
 " vim-devicons
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 
