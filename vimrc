@@ -92,8 +92,18 @@ if &t_Co > 2 || has("gui_running")
     \ 'component': {
     \   'charinfo': 'U+%04B'
     \ },
+    \ 'component_function': {
+    \   'filetype': 'LightLineFiletype',
+    \   'fileformat': 'LightLineFileformat'
+    \ },
     \ 'colorscheme': 'solarized'
     \ }
+  function! LightLineFiletype()
+    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+  endfunction
+  function! LightLineFileformat()
+    return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+  endfunction
 endif
 
 " クリップボードが有効な場合
