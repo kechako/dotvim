@@ -109,7 +109,7 @@ endif
 " クリップボードが有効な場合
 if has("clipboard")
   " Yank と Clipboard を連携
-  set clipboard=unnamedplus
+  set clipboard=unnamedplus,unnamed
 endif
 
 " autocmd が有効な場合
