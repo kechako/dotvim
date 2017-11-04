@@ -6,6 +6,8 @@ undo/*
 !undo/.keep
 netrw/*
 !netrw/.keep
+spell/*
+!spell/.keep
 
 dein/*
 !dein/repos
