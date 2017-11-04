@@ -52,3 +52,6 @@
 [submodule "pack/plugins/start/ctrlp.vim"]
 	path = pack/plugins/start/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "pack/plugins/start/lexima.vim"]
+	path = pack/plugins/start/lexima.vim
+	url = https://github.com/cohama/lexima.vim.git
