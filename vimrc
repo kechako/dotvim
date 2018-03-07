@@ -43,6 +43,8 @@ set switchbuf=usetab,newtab
 " preview を削除する
 " vim-go + neocomplete で不要な Preview が表示されるのを抑制する
 set completeopt-=preview
+" leader に ',' を設定
+let mapleader = ","
 
 " grep プログラム設定
 if executable('jvgrep')
@@ -165,6 +167,18 @@ let g:go_highlight_structs = 1
 let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
+if has("autocmd")
+  augroup VimGo
+    autocmd!
+
+    autocmd FileType go nmap <leader>b  <Plug>(go-build)
+    autocmd FileType go nmap <leader>r  <Plug>(go-run)
+    autocmd FileType go nmap <leader>t  <Plug>(go-test)
+    autocmd FileType go nmap <Leader>c  <Plug>(go-coverage-toggle)
+    autocmd FileType go nmap <Leader>i  <Plug>(go-info)
+  augroup END
+endif
 
 " CtrlP
 let g:ctrlp_map = '<c-p>'
