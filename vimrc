@@ -146,6 +146,12 @@ else
 
 endif " has("autocmd")
 
+if has('quickfix')
+  map <C-j> :cnext<CR>
+  map <C-k> :cprevious<CR>
+  nnoremap <leader>a :cclose<CR>
+endif
+
 if has('langmap') && exists('+langnoremap')
   " langmap の文字がマッピングの結果として適用されないようにする
   " (このオプションは後方互換性のためデフォルトはOFF)
