@@ -40,6 +40,8 @@ let g:netrw_liststyle=1
 let g:netrw_home=expand("$HOME/.vim/netrw")
 " quickfix
 set switchbuf=usetab,newtab
+" コマンドラインの高さ
+set cmdheight=4
 " preview を削除する
 " vim-go + neocomplete で不要な Preview が表示されるのを抑制する
 set completeopt-=preview
