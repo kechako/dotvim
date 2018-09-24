@@ -25,9 +25,6 @@
 [submodule "pack/plugins/start/vim-gfm-syntax"]
 	path = pack/plugins/start/vim-gfm-syntax
 	url = https://github.com/rhysd/vim-gfm-syntax.git
-[submodule "pack/plugins/start/neocomplete.vim"]
-	path = pack/plugins/start/neocomplete.vim
-	url = https://github.com/Shougo/neocomplete.vim.git
 [submodule "pack/plugins/start/typescript-vim"]
 	path = pack/plugins/start/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git

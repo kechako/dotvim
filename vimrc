@@ -43,7 +43,7 @@ set switchbuf=usetab,newtab
 " コマンドラインの高さ
 set cmdheight=4
 " preview を削除する
-" vim-go + neocomplete で不要な Preview が表示されるのを抑制する
+" vim-go の auto completion で不要な Preview が表示されるのを抑制する
 set completeopt-=preview
 " leader に ',' を設定
 let mapleader = ","
@@ -194,9 +194,6 @@ let g:ctrlp_cmd = 'CtrlP'
 
 " vim-devicons
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-
-" neocomplete
-let g:neocomplete#max_keyword_width = 120
 
 " typescript-vim
 let g:typescript_indent_disable = 1
