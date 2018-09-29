@@ -42,6 +42,8 @@ let g:netrw_home=expand("$HOME/.vim/netrw")
 set switchbuf=usetab,newtab
 " コマンドラインの高さ
 set cmdheight=4
+" ビープを鳴らさない
+set vb t_vb=
 " preview を削除する
 " vim-go の auto completion で不要な Preview が表示されるのを抑制する
 set completeopt-=preview
