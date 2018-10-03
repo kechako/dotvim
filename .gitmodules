@@ -19,9 +19,6 @@
 [submodule "pack/plugins/start/rtf-highlight"]
 	path = pack/plugins/start/rtf-highlight
 	url = https://github.com/dharanasoft/rtf-highlight.git
-[submodule "pack/plugins/start/vim-elixir"]
-	path = pack/plugins/start/vim-elixir
-	url = https://github.com/elixir-lang/vim-elixir
 [submodule "pack/plugins/start/vim-gfm-syntax"]
 	path = pack/plugins/start/vim-gfm-syntax
 	url = https://github.com/rhysd/vim-gfm-syntax.git
