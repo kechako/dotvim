@@ -137,9 +137,9 @@ if has("autocmd")
 
     " ファイルを開いた時に、前回のカーソル位置に移動する
     autocmd BufReadPost *
-      \ if line("'\"") >= 1 && line("'\"") <= line("$") |
-      \   exe "normal! g`\"" |
-      \ endif
+      \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+      \ |   exe "normal! g`\""
+      \ | endif
 
   augroup END
 
