@@ -47,6 +47,9 @@ set number
 set numberwidth=6
 " ビープを鳴らさない
 set vb t_vb=
+" preview を削除する
+" asyncomplete.vim の auto completion で不要な Preview が表示されるのを抑制する
+set completeopt-=preview
 " leader に ',' を設定
 let mapleader = ","
 
