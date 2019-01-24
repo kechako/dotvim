@@ -1,22 +1,31 @@
 " vim-lsp
 
 " golang
-if executable('go-langserver')
+if executable('gopls') || executable('go-langserver')
   augroup LspGo
     autocmd!
-    autocmd User lsp_setup call lsp#register_server({
-          \ 'name': 'go-langserver',
-          \ 'cmd': {server_info->['go-langserver', '-gocodecompletion']},
-          \ 'initialization_options': {
-          \   'funcSnippetEnabled': v:true,
-          \   'gocodeCompletionEnabled': v:true,
-          \   'formatTool': 'goimports',
-          \   'lintTool': 'golint',
-          \   'goimportsLocalPrefix': '',
-          \   'diagnosticsEnabled': v:true
-          \ },
-          \ 'whitelist': ['go'],
-          \ })
+    if executable('gopls')
+      autocmd User lsp_setup call lsp#register_server({
+            \ 'name': 'go-lang',
+            \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
+            \ 'whitelist': ['go'],
+            \ })
+    elseif executable('go-langserver')
+      autocmd User lsp_setup call lsp#register_server({
+            \ 'name': 'go-lang',
+            \ 'cmd': {server_info->['go-langserver', '-gocodecompletion']},
+            \ 'initialization_options': {
+            \   'funcSnippetEnabled': v:true,
+            \   'gocodeCompletionEnabled': v:true,
+            \   'formatTool': 'goimports',
+            \   'lintTool': 'golint',
+            \   'goimportsLocalPrefix': '',
+            \   'diagnosticsEnabled': v:true
+            \ },
+            \ 'whitelist': ['go'],
+            \ })
+    endif
+
     autocmd FileType go setlocal omnifunc=lsp#complete
 
     autocmd FileType go nnoremap <buffer><silent> gd :<C-u>LspDefinition<CR>
