@@ -8,13 +8,3 @@ netrw/*
 !netrw/.keep
 spell/*
 !spell/.keep
-
-dein/*
-!dein/repos
-dein/repos/*
-!dein/repos/github.com
-dein/repos/github.com/*
-!dein/repos/github.com/Shougo
-dein/repos/github.com/Shougo/*
-!dein/repos/github.com/Shougo/dein.vim
-
