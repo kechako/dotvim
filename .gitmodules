@@ -1,63 +1,84 @@
 [submodule "pack/plugins/start/lightline.vim"]
 	path = pack/plugins/start/lightline.vim
 	url = https://github.com/itchyny/lightline.vim.git
+	ignore = dirty
 [submodule "pack/plugins/start/vim-go"]
 	path = pack/plugins/start/vim-go
 	url = https://github.com/fatih/vim-go.git
+	ignore = dirty
 [submodule "pack/plugins/start/vim-rails"]
 	path = pack/plugins/start/vim-rails
 	url = https://github.com/tpope/vim-rails.git
+	ignore = dirty
 [submodule "pack/plugins/start/vim-color-solarized"]
 	path = pack/plugins/start/vim-color-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+	ignore = dirty
 [submodule "pack/plugins/start/vim-toml"]
 	path = pack/plugins/start/vim-toml
 	url = https://github.com/cespare/vim-toml
+	ignore = dirty
 [submodule "pack/plugins/start/tagbar"]
 	path = pack/plugins/start/tagbar
 	url = https://github.com/majutsushi/tagbar
+	ignore = dirty
 [submodule "pack/plugins/start/rtf-highlight"]
 	path = pack/plugins/start/rtf-highlight
 	url = https://github.com/dharanasoft/rtf-highlight.git
+	ignore = dirty
 [submodule "pack/plugins/start/vim-gfm-syntax"]
 	path = pack/plugins/start/vim-gfm-syntax
 	url = https://github.com/rhysd/vim-gfm-syntax.git
+	ignore = dirty
 [submodule "pack/plugins/start/typescript-vim"]
 	path = pack/plugins/start/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
+	ignore = dirty
 [submodule "pack/plugins/start/yats.vim"]
 	path = pack/plugins/start/yats.vim
 	url = https://github.com/HerringtonDarkholme/yats.vim.git
+	ignore = dirty
 [submodule "pack/plugins/start/vim-js-indent"]
 	path = pack/plugins/start/vim-js-indent
 	url = https://github.com/jason0x43/vim-js-indent.git
+	ignore = dirty
 [submodule "pack/plugins/start/tsuquyomi"]
 	path = pack/plugins/start/tsuquyomi
 	url = https://github.com/Quramy/tsuquyomi.git
+	ignore = dirty
 [submodule "pack/plugins/start/twitvim"]
 	path = pack/plugins/start/twitvim
 	url = https://github.com/twitvim/twitvim.git
+	ignore = dirty
 [submodule "pack/plugins/start/nerdtree"]
 	path = pack/plugins/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+	ignore = dirty
 [submodule "pack/plugins/start/vim-devicons"]
 	path = pack/plugins/start/vim-devicons
 	url = https://github.com/ryanoasis/vim-devicons.git
+	ignore = dirty
 [submodule "pack/plugins/start/ctrlp.vim"]
 	path = pack/plugins/start/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
+	ignore = dirty
 [submodule "pack/plugins/start/vim-vue"]
 	path = pack/plugins/start/vim-vue
 	url = https://github.com/posva/vim-vue.git
+	ignore = dirty
 [submodule "pack/plugins/start/vim-lsp"]
 	path = pack/plugins/start/vim-lsp
 	url = https://github.com/prabirshrestha/vim-lsp.git
+	ignore = dirty
 [submodule "pack/plugins/start/asyncomplete-lsp.vim"]
 	path = pack/plugins/start/asyncomplete-lsp.vim
 	url = https://github.com/prabirshrestha/asyncomplete-lsp.vim.git
+	ignore = dirty
 [submodule "pack/plugins/start/asyncomplete.vim"]
 	path = pack/plugins/start/asyncomplete.vim
 	url = https://github.com/prabirshrestha/asyncomplete.vim.git
+	ignore = dirty
 [submodule "pack/plugins/start/async.vim"]
 	path = pack/plugins/start/async.vim
 	url = https://github.com/prabirshrestha/async.vim.git
+	ignore = dirty
