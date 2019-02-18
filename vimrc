@@ -94,9 +94,6 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   " 検索時のハイライト表示を on
   set hlsearch
-  " カラーテーマ設定
-  set background=dark
-  colorscheme solarized
 
   " True Color をサポートしている場合
   if $COLORTERM =~? 'truecolor\|24bit'
@@ -104,6 +101,12 @@ if &t_Co > 2 || has("gui_running")
     set termguicolors
     let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
     let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+  endif
+
+  " 256色以上の場合
+  if &t_Co >= 256 || has("gui_running")
+    " カラーテーマ設定
+    colorscheme iceberg
   endif
 
   " lightline.vim
@@ -120,7 +123,7 @@ if &t_Co > 2 || has("gui_running")
     \   'filetype': 'LightLineFiletype',
     \   'fileformat': 'LightLineFileformat'
     \ },
-    \ 'colorscheme': 'solarized'
+    \ 'colorscheme': 'iceberg'
     \ }
   function! LightLineFiletype()
     return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
