@@ -82,3 +82,6 @@
 	path = pack/plugins/start/async.vim
 	url = https://github.com/prabirshrestha/async.vim.git
 	ignore = dirty
+[submodule "pack/plugins/start/iceberg.vim"]
+	path = pack/plugins/start/iceberg.vim
+	url = https://github.com/cocopon/iceberg.vim.git
