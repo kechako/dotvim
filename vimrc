@@ -97,6 +97,15 @@ if &t_Co > 2 || has("gui_running")
   " カラーテーマ設定
   set background=dark
   colorscheme solarized
+
+  " True Color をサポートしている場合
+  if $COLORTERM =~? 'truecolor\|24bit'
+    " True Color 有効化
+    set termguicolors
+    let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
+    let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+  endif
+
   " lightline.vim
   let g:lightline = {
     \ 'active':{
