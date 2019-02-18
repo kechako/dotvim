@@ -7,7 +7,7 @@ if executable('gopls') || executable('go-langserver')
     if executable('gopls')
       autocmd User lsp_setup call lsp#register_server({
             \ 'name': 'go-lang',
-            \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
+            \ 'cmd': {server_info->['gopls', 'serve']},
             \ 'whitelist': ['go'],
             \ })
     elseif executable('go-langserver')
