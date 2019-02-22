@@ -113,18 +113,25 @@ if &t_Co > 2 || has("gui_running")
   " 検索時のハイライト表示を on
   set hlsearch
 
-  " True Color をサポートしている場合
-  if $COLORTERM =~? 'truecolor\|24bit'
+  if has("win32")
     " True Color 有効化
     set termguicolors
-    let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
-    let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
-  endif
-
-  " 256色以上の場合
-  if &t_Co >= 256 || has("gui_running")
     " カラーテーマ設定
     colorscheme iceberg
+  else
+    " True Color をサポートしている場合
+    if $COLORTERM =~? 'truecolor\|24bit'
+      " True Color 有効化
+      set termguicolors
+      let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
+      let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+    endif
+
+    " 256色以上の場合
+    if &t_Co >= 256 || has("gui_running")
+      " カラーテーマ設定
+      colorscheme iceberg
+    endif
   endif
 
   " lightline.vim
