@@ -1,14 +1,22 @@
 " insert mode でバックスペースで削除可能な文字の設定
 set backspace=indent,eol,start
+
+" vimfiles
+let s:vimfilesdir = $HOME . '/.vim'
+if has("win32")
+  " for windows
+  let s:vimfilesdir = $HOME . '/vimfiles'
+endif
 " スワップファイルを作成
 set swapfile
-set directory=$HOME/.vim/swap
+let &directory = s:vimfilesdir . '/swap'
 " バックアップファイルを作成
 set backup
-set backupdir=$HOME/.vim/backup
+let &backupdir = s:vimfilesdir . '/backup'
 " undo ファイルを作成
 set undofile
-set undodir=$HOME/.vim/undo
+let &undodir = s:vimfilesdir . '/undo'
+
 " コマンドライン履歴を50行保存
 set history=50
 " カーソル位置を常時表示
