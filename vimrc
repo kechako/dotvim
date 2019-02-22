@@ -1,3 +1,8 @@
+" vim:set fenc=utf-8 ff=unix
+
+" encoding
+set encoding=utf-8
+
 " insert mode でバックスペースで削除可能な文字の設定
 set backspace=indent,eol,start
 
