@@ -101,6 +101,11 @@ if has('signs')
   set signcolumn=yes
 endif
 
+" フォントの設定
+if has("gui_running")
+  set guifont=Cica:h14:cSHIFTJIS:qDRAFT
+endif
+
 " カラー表示可能かどうかチェック
 if &t_Co > 2 || has("gui_running")
   " シンタックスハイライトを on
