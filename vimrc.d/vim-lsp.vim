@@ -50,3 +50,30 @@ if executable('gopls') || executable('go-langserver')
     let g:lsp_preview_keep_focus = 1
   augroup END
 endif
+
+" TypeScript
+if executable('typescript-language-server')
+  augroup LspTypeScript
+    autocmd!
+    au User lsp_setup call lsp#register_server({
+          \ 'name': 'typescript-language-server',
+          \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+          \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+          \ 'whitelist': ['typescript', 'typescript.tsx'],
+          \ })
+  augroup END
+
+  autocmd FileType typescript setlocal omnifunc=lsp#complete
+
+  autocmd FileType typescript nnoremap <buffer><silent> gd :<C-u>LspDefinition<CR>
+  autocmd FileType typescript nnoremap <buffer><silent> <C-]> :<C-u>LspDefinition<CR>
+  autocmd FileType typescript nnoremap <buffer><silent> gD :<C-u>LspReferences<CR>
+  autocmd FileType typescript nnoremap <buffer><silent> <leader>s :<C-u>LspDocumentSymbol<CR>
+  autocmd FileType typescript nnoremap <buffer><silent> <leader>y :<C-u>LspWorkspaceSymbol<CR>
+  autocmd FileType typescript nnoremap <buffer><silent> <leader>f :<C-u>LspDocumentFormat<CR>
+  "autocmd FileType typescript nnoremap <buffer><silent> <leader>k :<C-u>LspHover<CR>
+  autocmd FileType typescript nnoremap <buffer><silent> <leader>i :<C-u>LspImplementation<CR>
+  autocmd FileType typescript nnoremap <buffer><silent> <leader>n :<C-u>LspRename<CR>
+
+  "autocmd CursorHold *.ts LspHover
+endif
