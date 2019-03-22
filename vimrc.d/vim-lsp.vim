@@ -10,6 +10,16 @@ if executable('gopls') || executable('go-langserver')
             \ 'cmd': {server_info->['gopls', 'serve']},
             \ 'whitelist': ['go'],
             \ })
+    elseif executable('bingo')
+      autocmd User lsp_setup call lsp#register_server({
+            \ 'name': 'go-lang',
+            \ 'cmd': {server_info->[
+            \   'bingo',
+            \   '-enhance-signature-help',
+            \   '-format-style=goimprots',
+            \ ]},
+            \ 'whitelist': ['go'],
+            \ })
     elseif executable('go-langserver')
       autocmd User lsp_setup call lsp#register_server({
             \ 'name': 'go-lang',
