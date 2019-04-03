@@ -46,19 +46,19 @@ if executable('typescript-language-server')
           \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
           \ 'whitelist': ['typescript', 'typescript.tsx'],
           \ })
+
+    autocmd FileType typescript setlocal omnifunc=lsp#complete
+
+    autocmd FileType typescript nnoremap <buffer><silent> gd :<C-u>LspDefinition<CR>
+    autocmd FileType typescript nnoremap <buffer><silent> <C-]> :<C-u>LspDefinition<CR>
+    autocmd FileType typescript nnoremap <buffer><silent> gD :<C-u>LspReferences<CR>
+    autocmd FileType typescript nnoremap <buffer><silent> <leader>s :<C-u>LspDocumentSymbol<CR>
+    autocmd FileType typescript nnoremap <buffer><silent> <leader>y :<C-u>LspWorkspaceSymbol<CR>
+    autocmd FileType typescript nnoremap <buffer><silent> <leader>f :<C-u>LspDocumentFormat<CR>
+    "autocmd FileType typescript nnoremap <buffer><silent> <leader>k :<C-u>LspHover<CR>
+    autocmd FileType typescript nnoremap <buffer><silent> <leader>i :<C-u>LspImplementation<CR>
+    autocmd FileType typescript nnoremap <buffer><silent> <leader>n :<C-u>LspRename<CR>
+
+    "autocmd CursorHold *.ts LspHover
   augroup END
-
-  autocmd FileType typescript setlocal omnifunc=lsp#complete
-
-  autocmd FileType typescript nnoremap <buffer><silent> gd :<C-u>LspDefinition<CR>
-  autocmd FileType typescript nnoremap <buffer><silent> <C-]> :<C-u>LspDefinition<CR>
-  autocmd FileType typescript nnoremap <buffer><silent> gD :<C-u>LspReferences<CR>
-  autocmd FileType typescript nnoremap <buffer><silent> <leader>s :<C-u>LspDocumentSymbol<CR>
-  autocmd FileType typescript nnoremap <buffer><silent> <leader>y :<C-u>LspWorkspaceSymbol<CR>
-  autocmd FileType typescript nnoremap <buffer><silent> <leader>f :<C-u>LspDocumentFormat<CR>
-  "autocmd FileType typescript nnoremap <buffer><silent> <leader>k :<C-u>LspHover<CR>
-  autocmd FileType typescript nnoremap <buffer><silent> <leader>i :<C-u>LspImplementation<CR>
-  autocmd FileType typescript nnoremap <buffer><silent> <leader>n :<C-u>LspRename<CR>
-
-  "autocmd CursorHold *.ts LspHover
 endif
