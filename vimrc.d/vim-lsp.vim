@@ -36,6 +36,33 @@ if executable('gopls')
   augroup END
 endif
 
+" Python
+if executable('pyls')
+  augroup LspPython
+    autocmd!
+    autocmd User lsp_setup call lsp#register_server({
+      \ 'name': 'pyls',
+      \ 'cmd': ['pyls'],
+      \ 'whitelist': ['python'],
+      \ })
+
+    autocmd FileType python setlocal omnifunc=lsp#complete
+
+    autocmd FileType python nnoremap <buffer><silent> gd :<C-u>LspDefinition<CR>
+    autocmd FileType python nnoremap <buffer><silent> <C-]> :<C-u>LspDefinition<CR>
+    autocmd FileType python nnoremap <buffer><silent> gD :<C-u>LspReferences<CR>
+    autocmd FileType python nnoremap <buffer><silent> <leader>s :<C-u>LspDocumentSymbol<CR>
+    autocmd FileType python nnoremap <buffer><silent> <leader>y :<C-u>LspWorkspaceSymbol<CR>
+    autocmd FileType python nnoremap <buffer><silent> <leader>f :<C-u>LspDocumentFormat<CR>
+    autocmd FileType python nnoremap <buffer><silent> <leader>k :<C-u>LspHover<CR>
+    autocmd FileType python nnoremap <buffer><silent> <leader>i :<C-u>LspImplementation<CR>
+    autocmd FileType python nnoremap <buffer><silent> <leader>n :<C-u>LspRename<CR>
+
+    autocmd FileType python autocmd CursorHold LspHover
+    autocmd FileType python autocmd BufWritePre <buffer> LspDocumentFormatSync
+  augroup END
+endif
+
 " TypeScript
 if executable('typescript-language-server')
   augroup LspTypeScript
