@@ -1,40 +1,23 @@
 " vim-lsp
 
+let g:lsp_signs_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_signs_error = {'text': '!!'}
+let g:lsp_signs_warning = {'text': '! '}
+let g:lsp_signs_information = {'text': 'i '}
+let g:lsp_signs_hint = {'text': '? '}
+
+let g:lsp_preview_keep_focus = 1
+
 " golang
-if executable('gopls') || executable('go-langserver')
+if executable('gopls')
   augroup LspGo
     autocmd!
-    if executable('gopls')
-      autocmd User lsp_setup call lsp#register_server({
-            \ 'name': 'go-lang',
-            \ 'cmd': {server_info->['gopls', 'serve']},
-            \ 'whitelist': ['go'],
-            \ })
-    elseif executable('bingo')
-      autocmd User lsp_setup call lsp#register_server({
-            \ 'name': 'go-lang',
-            \ 'cmd': {server_info->[
-            \   'bingo',
-            \   '-enhance-signature-help',
-            \   '-format-style=goimprots',
-            \ ]},
-            \ 'whitelist': ['go'],
-            \ })
-    elseif executable('go-langserver')
-      autocmd User lsp_setup call lsp#register_server({
-            \ 'name': 'go-lang',
-            \ 'cmd': {server_info->['go-langserver', '-gocodecompletion']},
-            \ 'initialization_options': {
-            \   'funcSnippetEnabled': v:true,
-            \   'gocodeCompletionEnabled': v:true,
-            \   'formatTool': 'goimports',
-            \   'lintTool': 'golint',
-            \   'goimportsLocalPrefix': '',
-            \   'diagnosticsEnabled': v:true
-            \ },
-            \ 'whitelist': ['go'],
-            \ })
-    endif
+    autocmd User lsp_setup call lsp#register_server({
+      \ 'name': 'golang',
+      \ 'cmd': ['gopls', 'serve'],
+      \ 'whitelist': ['go'],
+      \ })
 
     autocmd FileType go setlocal omnifunc=lsp#complete
 
@@ -48,16 +31,8 @@ if executable('gopls') || executable('go-langserver')
     autocmd FileType go nnoremap <buffer><silent> <leader>i :<C-u>LspImplementation<CR>
     autocmd FileType go nnoremap <buffer><silent> <leader>n :<C-u>LspRename<CR>
 
-    autocmd CursorHold *.go LspHover
-
-    let g:lsp_signs_enabled = 1
-    let g:lsp_diagnostics_echo_cursor = 1
-    let g:lsp_signs_error = {'text': '!!'}
-    let g:lsp_signs_warning = {'text': '! '}
-    let g:lsp_signs_information = {'text': 'i '}
-    let g:lsp_signs_hint = {'text': '? '}
-
-    let g:lsp_preview_keep_focus = 1
+    autocmd FileType go autocmd CursorHold LspHover
+    autocmd FileType go autocmd BufWritePre <buffer> LspDocumentFormatSync
   augroup END
 endif
 
