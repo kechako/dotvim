@@ -21,17 +21,17 @@ if executable('gopls')
 
     autocmd FileType go setlocal omnifunc=lsp#complete
 
-    autocmd FileType go nnoremap <buffer><silent> gd :<C-u>LspDefinition<CR>
-    autocmd FileType go nnoremap <buffer><silent> <C-]> :<C-u>LspDefinition<CR>
-    autocmd FileType go nnoremap <buffer><silent> gD :<C-u>LspReferences<CR>
-    autocmd FileType go nnoremap <buffer><silent> <leader>s :<C-u>LspDocumentSymbol<CR>
-    autocmd FileType go nnoremap <buffer><silent> <leader>y :<C-u>LspWorkspaceSymbol<CR>
-    autocmd FileType go nnoremap <buffer><silent> <leader>f :<C-u>LspDocumentFormat<CR>
-    autocmd FileType go nnoremap <buffer><silent> <leader>k :<C-u>LspHover<CR>
-    autocmd FileType go nnoremap <buffer><silent> <leader>i :<C-u>LspImplementation<CR>
-    autocmd FileType go nnoremap <buffer><silent> <leader>n :<C-u>LspRename<CR>
+    autocmd FileType go nmap <buffer><silent> gd        <plug>(lsp-definition)
+    autocmd FileType go nmap <buffer><silent> <C-]>     <plug>(lsp-definition)
+    autocmd FileType go nmap <buffer><silent> gD        <plug>(lsp-references)
+    autocmd FileType go nmap <buffer><silent> <leader>s <plug>(lsp-document-symbol)
+    autocmd FileType go nmap <buffer><silent> <leader>y <plug>(lsp-workspace-symbol)
+    autocmd FileType go nmap <buffer><silent> <leader>f <plug>(lsp-document-format)
+    autocmd FileType go nmap <buffer><silent> <leader>k <plug>(lsp-hover)
+    autocmd FileType go nmap <buffer><silent> <leader>i <plug>(lsp-implementation)
+    autocmd FileType go nmap <buffer><silent> <leader>n <plug>(lsp-rename)
 
-    autocmd FileType go autocmd CursorHold LspHover
+    autocmd FileType go autocmd CursorHold <buffer> LspHover
     autocmd FileType go autocmd BufWritePre <buffer> LspDocumentFormatSync
   augroup END
 endif
@@ -48,17 +48,17 @@ if executable('pyls')
 
     autocmd FileType python setlocal omnifunc=lsp#complete
 
-    autocmd FileType python nnoremap <buffer><silent> gd :<C-u>LspDefinition<CR>
-    autocmd FileType python nnoremap <buffer><silent> <C-]> :<C-u>LspDefinition<CR>
-    autocmd FileType python nnoremap <buffer><silent> gD :<C-u>LspReferences<CR>
-    autocmd FileType python nnoremap <buffer><silent> <leader>s :<C-u>LspDocumentSymbol<CR>
-    autocmd FileType python nnoremap <buffer><silent> <leader>y :<C-u>LspWorkspaceSymbol<CR>
-    autocmd FileType python nnoremap <buffer><silent> <leader>f :<C-u>LspDocumentFormat<CR>
-    autocmd FileType python nnoremap <buffer><silent> <leader>k :<C-u>LspHover<CR>
-    autocmd FileType python nnoremap <buffer><silent> <leader>i :<C-u>LspImplementation<CR>
-    autocmd FileType python nnoremap <buffer><silent> <leader>n :<C-u>LspRename<CR>
+    autocmd FileType python nmap <buffer><silent> gd        <plug>(lsp-definition)
+    autocmd FileType python nmap <buffer><silent> <C-]>     <plug>(lsp-definition)
+    autocmd FileType python nmap <buffer><silent> gD        <plug>(lsp-references)
+    autocmd FileType python nmap <buffer><silent> <leader>s <plug>(lsp-document-symbol)
+    autocmd FileType python nmap <buffer><silent> <leader>y <plug>(lsp-workspace-symbol)
+    autocmd FileType python nmap <buffer><silent> <leader>f <plug>(lsp-document-format)
+    autocmd FileType python nmap <buffer><silent> <leader>k <plug>(lsp-hover)
+    autocmd FileType python nmap <buffer><silent> <leader>i <plug>(lsp-implementation)
+    autocmd FileType python nmap <buffer><silent> <leader>n <plug>(lsp-rename)
 
-    autocmd FileType python autocmd CursorHold LspHover
+    autocmd FileType python autocmd CursorHold <buffer> LspHover
     autocmd FileType python autocmd BufWritePre <buffer> LspDocumentFormatSync
   augroup END
 endif
@@ -76,16 +76,17 @@ if executable('typescript-language-server')
 
     autocmd FileType typescript setlocal omnifunc=lsp#complete
 
-    autocmd FileType typescript nnoremap <buffer><silent> gd :<C-u>LspDefinition<CR>
-    autocmd FileType typescript nnoremap <buffer><silent> <C-]> :<C-u>LspDefinition<CR>
-    autocmd FileType typescript nnoremap <buffer><silent> gD :<C-u>LspReferences<CR>
-    autocmd FileType typescript nnoremap <buffer><silent> <leader>s :<C-u>LspDocumentSymbol<CR>
-    autocmd FileType typescript nnoremap <buffer><silent> <leader>y :<C-u>LspWorkspaceSymbol<CR>
-    autocmd FileType typescript nnoremap <buffer><silent> <leader>f :<C-u>LspDocumentFormat<CR>
-    "autocmd FileType typescript nnoremap <buffer><silent> <leader>k :<C-u>LspHover<CR>
-    autocmd FileType typescript nnoremap <buffer><silent> <leader>i :<C-u>LspImplementation<CR>
-    autocmd FileType typescript nnoremap <buffer><silent> <leader>n :<C-u>LspRename<CR>
+    autocmd FileType typescript nmap <buffer><silent> gd        <plug>(lsp-definition)
+    autocmd FileType typescript nmap <buffer><silent> <C-]>     <plug>(lsp-definition)
+    autocmd FileType typescript nmap <buffer><silent> gD        <plug>(lsp-references)
+    autocmd FileType typescript nmap <buffer><silent> <leader>s <plug>(lsp-document-symbol)
+    autocmd FileType typescript nmap <buffer><silent> <leader>y <plug>(lsp-workspace-symbol)
+    autocmd FileType typescript nmap <buffer><silent> <leader>f <plug>(lsp-document-format)
+    "autocmd FileType typescript nmap <buffer><silent> <leader>k <plug>(lsp-hover)
+    autocmd FileType typescript nmap <buffer><silent> <leader>i <plug>(lsp-implementation)
+    autocmd FileType typescript nmap <buffer><silent> <leader>n <plug>(lsp-rename)
 
-    "autocmd CursorHold *.ts LspHover
+    "autocmd FileType typescript autocmd CursorHold <buffer> LspHover
+    autocmd FileType typescript autocmd BufWritePre <buffer> LspDocumentFormatSync
   augroup END
 endif
