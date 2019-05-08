@@ -40,6 +40,8 @@ set hidden
 set incsearch
 " ステータス行の表示
 set laststatus=2
+" 検索件数の表示
+set shortmess-=S
 " ファイルの末尾に自動で改行を入れない
 set nofixendofline
 " 補完の一覧表示
