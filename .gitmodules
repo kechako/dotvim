@@ -81,3 +81,6 @@
 [submodule "pack/plugins/start/iceberg.vim"]
 	path = pack/plugins/start/iceberg.vim
 	url = https://github.com/cocopon/iceberg.vim.git
+[submodule "pack/plugins/start/translate.vim"]
+	path = pack/plugins/start/translate.vim
+	url = https://github.com/skanehira/translate.vim.git
