@@ -36,6 +36,34 @@ if executable('gopls')
   augroup END
 endif
 
+" Rust
+if executable('rls')
+  augroup LspRust
+    autocmd!
+    autocmd User lsp_setup call lsp#register_server({
+      \ 'name': 'rls',
+      \ 'cmd': ['rustup', 'run', 'stable', 'rls'],
+      \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
+      \ 'whitelist': ['rust'],
+      \ })
+
+    autocmd FileType rust setlocal omnifunc=lsp#complete
+
+    autocmd FileType rust nmap <buffer><silent> gd        <plug>(lsp-definition)
+    autocmd FileType rust nmap <buffer><silent> <C-]>     <plug>(lsp-definition)
+    autocmd FileType rust nmap <buffer><silent> gD        <plug>(lsp-references)
+    autocmd FileType rust nmap <buffer><silent> <leader>s <plug>(lsp-document-symbol)
+    autocmd FileType rust nmap <buffer><silent> <leader>y <plug>(lsp-workspace-symbol)
+    autocmd FileType rust nmap <buffer><silent> <leader>f <plug>(lsp-document-format)
+    autocmd FileType rust nmap <buffer><silent> <leader>k <plug>(lsp-hover)
+    autocmd FileType rust nmap <buffer><silent> <leader>i <plug>(lsp-implementation)
+    autocmd FileType rust nmap <buffer><silent> <leader>n <plug>(lsp-rename)
+
+    autocmd FileType rust autocmd CursorHold <buffer> LspHover
+    autocmd FileType rust autocmd BufWritePre <buffer> LspDocumentFormatSync
+  augroup END
+endif
+
 " Python
 if executable('pyls')
   augroup LspPython
