@@ -1,0 +1,35 @@
+{
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "args": ["serve"],
+      "rootPatterns": ["go.mod"],
+      "filetypes": ["go"]
+    },
+    "rust": {
+      "command": "rustup",
+      "args": ["run", "stable", "rls"],
+      "rootPatterns": ["Cargo.toml"],
+      "filetypes": ["rust"],
+      "settings": {
+        "rust": {
+          "clippy_preference": "on"
+        }
+      }
+    },
+    "python": {
+      "command": "python",
+      "args": ["-mpyls"],
+      "filetypes": ["python"]
+    },
+    "typescript": {
+      "command": "typescript-language-server",
+      "args": ["--stdio"],
+      "rootPatterns": ["tsconfig.json"],
+      "filetypes": ["typescript", "typescript.tsx"]
+    }
+  },
+  "suggest.snippetIndicator": "►",
+  "coc.preferences.formatOnSaveFiletypes": ["go"],
+  "diagnostic.refreshAfterSave": true
+}
