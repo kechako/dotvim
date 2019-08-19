@@ -10,10 +10,6 @@
 	path = pack/plugins/start/vim-rails
 	url = https://github.com/tpope/vim-rails.git
 	ignore = dirty
-[submodule "pack/plugins/start/vim-color-solarized"]
-	path = pack/plugins/start/vim-color-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
-	ignore = dirty
 [submodule "pack/plugins/start/vim-toml"]
 	path = pack/plugins/start/vim-toml
 	url = https://github.com/cespare/vim-toml
@@ -21,10 +17,6 @@
 [submodule "pack/plugins/start/tagbar"]
 	path = pack/plugins/start/tagbar
 	url = https://github.com/majutsushi/tagbar
-	ignore = dirty
-[submodule "pack/plugins/start/rtf-highlight"]
-	path = pack/plugins/start/rtf-highlight
-	url = https://github.com/dharanasoft/rtf-highlight.git
 	ignore = dirty
 [submodule "pack/plugins/start/vim-gfm-syntax"]
 	path = pack/plugins/start/vim-gfm-syntax
@@ -45,10 +37,6 @@
 [submodule "pack/plugins/start/twitvim"]
 	path = pack/plugins/start/twitvim
 	url = https://github.com/twitvim/twitvim.git
-	ignore = dirty
-[submodule "pack/plugins/start/nerdtree"]
-	path = pack/plugins/start/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
 	ignore = dirty
 [submodule "pack/plugins/start/vim-devicons"]
 	path = pack/plugins/start/vim-devicons
