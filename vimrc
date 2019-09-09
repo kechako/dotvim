@@ -198,7 +198,7 @@ if has('quickfix')
 
   map <C-j> :cnext<CR>
   map <C-k> :cprevious<CR>
-  nnoremap <leader>a :cclose<CR>
+  nnoremap <leader>q :cclose<CR>
 endif
 
 if has('langmap') && exists('+langnoremap')
