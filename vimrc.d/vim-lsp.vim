@@ -31,6 +31,7 @@ if executable('gopls')
     autocmd FileType go nmap <buffer><silent> <leader>i <plug>(lsp-implementation)
     autocmd FileType go nmap <buffer><silent> <leader>n <plug>(lsp-rename)
     autocmd FileType go nmap <buffer><silent> <leader>a <plug>(lsp-code-action)
+    autocmd FileType go nmap <buffer><silent> <leader>e <plug>(lsp-next-error)
 
     autocmd FileType go autocmd CursorHold <buffer> LspHover
     autocmd FileType go autocmd BufWritePre <buffer> LspDocumentFormatSync
@@ -60,6 +61,7 @@ if executable('rls')
     autocmd FileType rust nmap <buffer><silent> <leader>i <plug>(lsp-implementation)
     autocmd FileType rust nmap <buffer><silent> <leader>n <plug>(lsp-rename)
     autocmd FileType rust nmap <buffer><silent> <leader>a <plug>(lsp-code-action)
+    autocmd FileType rust nmap <buffer><silent> <leader>e <plug>(lsp-next-error)
 
     autocmd FileType rust autocmd CursorHold <buffer> LspHover
     autocmd FileType rust autocmd BufWritePre <buffer> LspDocumentFormatSync
@@ -88,6 +90,7 @@ if executable('pyls')
     autocmd FileType python nmap <buffer><silent> <leader>i <plug>(lsp-implementation)
     autocmd FileType python nmap <buffer><silent> <leader>n <plug>(lsp-rename)
     autocmd FileType python nmap <buffer><silent> <leader>a <plug>(lsp-code-action)
+    autocmd FileType python nmap <buffer><silent> <leader>e <plug>(lsp-next-error)
 
     autocmd FileType python autocmd CursorHold <buffer> LspHover
     autocmd FileType python autocmd BufWritePre <buffer> LspDocumentFormatSync
@@ -117,6 +120,7 @@ if executable('typescript-language-server')
     autocmd FileType typescript nmap <buffer><silent> <leader>i <plug>(lsp-implementation)
     autocmd FileType typescript nmap <buffer><silent> <leader>n <plug>(lsp-rename)
     autocmd FileType typescript nmap <buffer><silent> <leader>a <plug>(lsp-code-action)
+    autocmd FileType typescript nmap <buffer><silent> <leader>e <plug>(lsp-next-error)
 
     "autocmd FileType typescript autocmd CursorHold <buffer> LspHover
     autocmd FileType typescript autocmd BufWritePre <buffer> LspDocumentFormatSync
