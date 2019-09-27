@@ -17,6 +17,9 @@ if executable('gopls')
     autocmd User lsp_setup call lsp#register_server({
       \ 'name': 'golang',
       \ 'cmd': ['gopls', 'serve'],
+      \ 'initialization_options': {
+      \   'completeUnimported': v:true,
+      \ },
       \ 'whitelist': ['go'],
       \ })
 
