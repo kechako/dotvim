@@ -54,10 +54,6 @@
 	path = pack/plugins/start/iceberg.vim
 	url = https://github.com/cocopon/iceberg.vim.git
 	ignore = dirty
-[submodule "pack/plugins/start/translate.vim"]
-	path = pack/plugins/start/translate.vim
-	url = https://github.com/skanehira/translate.vim.git
-	ignore = dirty
 [submodule "pack/plugins/start/async.vim"]
 	path = pack/plugins/start/async.vim
 	url = https://github.com/prabirshrestha/async.vim.git
