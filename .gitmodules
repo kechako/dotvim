@@ -69,3 +69,7 @@
 [submodule "pack/plugins/start/asyncomplete-lsp.vim"]
 	path = pack/plugins/start/asyncomplete-lsp.vim
 	url = https://github.com/prabirshrestha/asyncomplete-lsp.vim.git
+[submodule "pack/plugins/start/fzf.vim"]
+	path = pack/plugins/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
+	ignore = dirty
