@@ -61,6 +61,10 @@ set vb t_vb=
 " leader に ',' を設定
 let mapleader = ","
 
+" <C-p>, <C-n> による履歴の参照の動作を <Up>, <Down> に合わせる
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
 " grep プログラム設定
 if executable('jvgrep')
   set grepprg=jvgrep
