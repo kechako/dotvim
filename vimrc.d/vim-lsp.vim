@@ -102,13 +102,12 @@ if executable('pyls')
 endif
 
 " TypeScript
-if executable('typescript-language-server')
+if executable('javascript-typescript-stdio')
   augroup LspTypeScript
     autocmd!
     au User lsp_setup call lsp#register_server({
-          \ 'name': 'typescript-language-server',
-          \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-          \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+          \ 'name': 'typescript',
+          \ 'cmd': ['javascript-typescript-stdio'],
           \ 'whitelist': ['typescript', 'typescript.tsx'],
           \ })
 
@@ -120,13 +119,13 @@ if executable('typescript-language-server')
     autocmd FileType typescript nmap <buffer><silent> <leader>s <plug>(lsp-document-symbol)
     autocmd FileType typescript nmap <buffer><silent> <leader>y <plug>(lsp-workspace-symbol)
     autocmd FileType typescript nmap <buffer><silent> <leader>f <plug>(lsp-document-format)
-    "autocmd FileType typescript nmap <buffer><silent> <leader>k <plug>(lsp-hover)
+    autocmd FileType typescript nmap <buffer><silent> <leader>k <plug>(lsp-hover)
     autocmd FileType typescript nmap <buffer><silent> <leader>i <plug>(lsp-implementation)
     autocmd FileType typescript nmap <buffer><silent> <leader>n <plug>(lsp-rename)
     autocmd FileType typescript nmap <buffer><silent> <leader>a <plug>(lsp-code-action)
     autocmd FileType typescript nmap <buffer><silent> <leader>e <plug>(lsp-next-error)
 
-    "autocmd FileType typescript autocmd CursorHold <buffer> LspHover
+    autocmd FileType typescript autocmd CursorHold <buffer> LspHover
     autocmd FileType typescript autocmd BufWritePre <buffer> LspDocumentFormatSync
   augroup END
 endif
