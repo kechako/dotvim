@@ -122,7 +122,7 @@ if executable('javascript-typescript-stdio')
     autocmd FileType typescript nmap <buffer><silent> gD        <plug>(lsp-references)
     autocmd FileType typescript nmap <buffer><silent> <leader>s <plug>(lsp-document-symbol)
     autocmd FileType typescript nmap <buffer><silent> <leader>y <plug>(lsp-workspace-symbol)
-    autocmd FileType typescript nmap <buffer><silent> <leader>f <plug>(lsp-document-format)
+    "autocmd FileType typescript nmap <buffer><silent> <leader>f <plug>(lsp-document-format)
     autocmd FileType typescript nmap <buffer><silent> <leader>k <plug>(lsp-hover)
     autocmd FileType typescript nmap <buffer><silent> <leader>i <plug>(lsp-implementation)
     autocmd FileType typescript nmap <buffer><silent> <leader>n <plug>(lsp-rename)
@@ -130,6 +130,6 @@ if executable('javascript-typescript-stdio')
     autocmd FileType typescript nmap <buffer><silent> <leader>e <plug>(lsp-next-error)
 
     autocmd FileType typescript autocmd CursorHold <buffer> LspHover
-    autocmd FileType typescript autocmd BufWritePre <buffer> LspDocumentFormatSync
+    "autocmd FileType typescript autocmd BufWritePre <buffer> LspDocumentFormatSync
   augroup END
 endif
