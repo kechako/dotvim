@@ -19,6 +19,10 @@ if executable('gopls')
       \ 'cmd': ['gopls', 'serve'],
       \ 'initialization_options': {
       \   'completeUnimported': v:true,
+      \   'usePlaceholders': v:true,
+      \   'staticcheck': v:true,
+      \   'completionDocumentation': v:true,
+      \   'caseSensitiveCompletion': v:true,
       \ },
       \ 'whitelist': ['go'],
       \ })
