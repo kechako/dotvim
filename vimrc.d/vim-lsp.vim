@@ -133,3 +133,33 @@ if executable('javascript-typescript-stdio')
     "autocmd FileType typescript autocmd BufWritePre <buffer> LspDocumentFormatSync
   augroup END
 endif
+
+" swift
+let $TOOLCHAINS = "swift"
+if executable('sourcekit-lsp')
+  augroup LspSwift
+    autocmd!
+    autocmd User lsp_setup call lsp#register_server({
+      \ 'name': 'swift',
+      \ 'cmd': ['sourcekit-lsp'],
+      \ 'whitelist': ['swift'],
+      \ })
+
+    autocmd FileType swift setlocal omnifunc=lsp#complete
+
+    autocmd FileType swift nmap <buffer><silent> gd        <plug>(lsp-definition)
+    autocmd FileType swift nmap <buffer><silent> <C-]>     <plug>(lsp-definition)
+    autocmd FileType swift nmap <buffer><silent> gD        <plug>(lsp-references)
+    autocmd FileType swift nmap <buffer><silent> <leader>s <plug>(lsp-document-symbol)
+    autocmd FileType swift nmap <buffer><silent> <leader>y <plug>(lsp-workspace-symbol)
+    autocmd FileType swift nmap <buffer><silent> <leader>f <plug>(lsp-document-format)
+    autocmd FileType swift nmap <buffer><silent> <leader>k <plug>(lsp-hover)
+    autocmd FileType swift nmap <buffer><silent> <leader>i <plug>(lsp-implementation)
+    autocmd FileType swift nmap <buffer><silent> <leader>n <plug>(lsp-rename)
+    autocmd FileType swift nmap <buffer><silent> <leader>a <plug>(lsp-code-action)
+    autocmd FileType swift nmap <buffer><silent> <leader>e <plug>(lsp-next-error)
+
+    autocmd FileType swift autocmd CursorHold <buffer> LspHover
+    autocmd FileType swift autocmd BufWritePre <buffer> LspDocumentFormatSync
+  augroup END
+endif
