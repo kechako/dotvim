@@ -112,25 +112,30 @@ if executable('javascript-typescript-stdio')
     au User lsp_setup call lsp#register_server({
           \ 'name': 'typescript',
           \ 'cmd': ['javascript-typescript-stdio'],
-          \ 'whitelist': ['typescript', 'typescript.tsx'],
+          \ 'whitelist': ['typescript', 'typescriptreact'],
           \ })
 
-    autocmd FileType typescript setlocal omnifunc=lsp#complete
+    function! s:setup_lsp_typescript()
+      setlocal omnifunc=lsp#complete
 
-    autocmd FileType typescript nmap <buffer><silent> gd        <plug>(lsp-definition)
-    autocmd FileType typescript nmap <buffer><silent> <C-]>     <plug>(lsp-definition)
-    autocmd FileType typescript nmap <buffer><silent> gD        <plug>(lsp-references)
-    autocmd FileType typescript nmap <buffer><silent> <leader>s <plug>(lsp-document-symbol)
-    autocmd FileType typescript nmap <buffer><silent> <leader>y <plug>(lsp-workspace-symbol)
-    "autocmd FileType typescript nmap <buffer><silent> <leader>f <plug>(lsp-document-format)
-    autocmd FileType typescript nmap <buffer><silent> <leader>k <plug>(lsp-hover)
-    autocmd FileType typescript nmap <buffer><silent> <leader>i <plug>(lsp-implementation)
-    autocmd FileType typescript nmap <buffer><silent> <leader>n <plug>(lsp-rename)
-    autocmd FileType typescript nmap <buffer><silent> <leader>a <plug>(lsp-code-action)
-    autocmd FileType typescript nmap <buffer><silent> <leader>e <plug>(lsp-next-error)
+      nmap <buffer><silent> gd        <plug>(lsp-definition)
+      nmap <buffer><silent> <C-]>     <plug>(lsp-definition)
+      nmap <buffer><silent> gD        <plug>(lsp-references)
+      nmap <buffer><silent> <leader>s <plug>(lsp-document-symbol)
+      nmap <buffer><silent> <leader>y <plug>(lsp-workspace-symbol)
+      "nmap <buffer><silent> <leader>f <plug>(lsp-document-format)
+      nmap <buffer><silent> <leader>k <plug>(lsp-hover)
+      nmap <buffer><silent> <leader>i <plug>(lsp-implementation)
+      nmap <buffer><silent> <leader>n <plug>(lsp-rename)
+      nmap <buffer><silent> <leader>a <plug>(lsp-code-action)
+      nmap <buffer><silent> <leader>e <plug>(lsp-next-error)
 
-    autocmd FileType typescript autocmd CursorHold <buffer> LspHover
-    "autocmd FileType typescript autocmd BufWritePre <buffer> LspDocumentFormatSync
+      autocmd CursorHold <buffer> LspHover
+      "autocmd BufWritePre <buffer> LspDocumentFormatSync
+    endfunction
+
+    autocmd FileType typescript      call s:setup_lsp_typescript()
+    autocmd FileType typescriptreact call s:setup_lsp_typescript()
   augroup END
 endif
 
