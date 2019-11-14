@@ -10,6 +10,63 @@ let g:lsp_signs_hint = {'text': '? '}
 
 let g:lsp_preview_keep_focus = 1
 
+function s:lsp_common_settings(opts)
+  let l:opts = {
+    \   'def':    v:true,
+    \   'ref':    v:true,
+    \   'symbol': v:true,
+    \   'format': v:true,
+    \   'hover':  v:true,
+    \   'impl':   v:true,
+    \   'ren':    v:true,
+    \   'action': v:true,
+    \   'nerror': v:true,
+    \ }
+  call extend(l:opts, a:opts)
+
+  setlocal omnifunc=lsp#complete
+
+  if l:opts['def']
+    nmap <buffer><silent> gd        <plug>(lsp-definition)
+    nmap <buffer><silent> <C-]>     <plug>(lsp-definition)
+  endif
+
+  if l:opts['ref']
+    nmap <buffer><silent> gD        <plug>(lsp-references)
+  endif
+
+  if l:opts['symbol']
+    nmap <buffer><silent> <leader>s <plug>(lsp-document-symbol)
+    nmap <buffer><silent> <leader>y <plug>(lsp-workspace-symbol)
+  endif
+
+  if l:opts['format']
+    nmap <buffer><silent> <leader>f <plug>(lsp-document-format)
+    autocmd BufWritePre <buffer> LspDocumentFormatSync
+  endif
+
+  if l:opts['hover']
+  nmap <buffer><silent> <leader>k <plug>(lsp-hover)
+  autocmd CursorHold <buffer> LspHover
+  endif
+
+  if l:opts['impl']
+    nmap <buffer><silent> <leader>i <plug>(lsp-implementation)
+  endif
+
+  if l:opts['ren']
+    nmap <buffer><silent> <leader>n <plug>(lsp-rename)
+  endif
+
+  if l:opts['action']
+    nmap <buffer><silent> <leader>a <plug>(lsp-code-action)
+  endif
+
+  if l:opts['nerror']
+    nmap <buffer><silent> <leader>e <plug>(lsp-next-error)
+  endif
+endfunction
+
 " golang
 if executable('gopls')
   augroup LspGo
@@ -27,22 +84,7 @@ if executable('gopls')
       \ 'whitelist': ['go'],
       \ })
 
-    autocmd FileType go setlocal omnifunc=lsp#complete
-
-    autocmd FileType go nmap <buffer><silent> gd        <plug>(lsp-definition)
-    autocmd FileType go nmap <buffer><silent> <C-]>     <plug>(lsp-definition)
-    autocmd FileType go nmap <buffer><silent> gD        <plug>(lsp-references)
-    autocmd FileType go nmap <buffer><silent> <leader>s <plug>(lsp-document-symbol)
-    autocmd FileType go nmap <buffer><silent> <leader>y <plug>(lsp-workspace-symbol)
-    autocmd FileType go nmap <buffer><silent> <leader>f <plug>(lsp-document-format)
-    autocmd FileType go nmap <buffer><silent> <leader>k <plug>(lsp-hover)
-    autocmd FileType go nmap <buffer><silent> <leader>i <plug>(lsp-implementation)
-    autocmd FileType go nmap <buffer><silent> <leader>n <plug>(lsp-rename)
-    autocmd FileType go nmap <buffer><silent> <leader>a <plug>(lsp-code-action)
-    autocmd FileType go nmap <buffer><silent> <leader>e <plug>(lsp-next-error)
-
-    autocmd FileType go autocmd CursorHold <buffer> LspHover
-    autocmd FileType go autocmd BufWritePre <buffer> LspDocumentFormatSync
+    autocmd FileType go call s:lsp_common_settings({})
   augroup END
 endif
 
@@ -57,22 +99,7 @@ if executable('rls')
       \ 'whitelist': ['rust'],
       \ })
 
-    autocmd FileType rust setlocal omnifunc=lsp#complete
-
-    autocmd FileType rust nmap <buffer><silent> gd        <plug>(lsp-definition)
-    autocmd FileType rust nmap <buffer><silent> <C-]>     <plug>(lsp-definition)
-    autocmd FileType rust nmap <buffer><silent> gD        <plug>(lsp-references)
-    autocmd FileType rust nmap <buffer><silent> <leader>s <plug>(lsp-document-symbol)
-    autocmd FileType rust nmap <buffer><silent> <leader>y <plug>(lsp-workspace-symbol)
-    autocmd FileType rust nmap <buffer><silent> <leader>f <plug>(lsp-document-format)
-    autocmd FileType rust nmap <buffer><silent> <leader>k <plug>(lsp-hover)
-    autocmd FileType rust nmap <buffer><silent> <leader>i <plug>(lsp-implementation)
-    autocmd FileType rust nmap <buffer><silent> <leader>n <plug>(lsp-rename)
-    autocmd FileType rust nmap <buffer><silent> <leader>a <plug>(lsp-code-action)
-    autocmd FileType rust nmap <buffer><silent> <leader>e <plug>(lsp-next-error)
-
-    autocmd FileType rust autocmd CursorHold <buffer> LspHover
-    autocmd FileType rust autocmd BufWritePre <buffer> LspDocumentFormatSync
+    autocmd FileType rust call s:lsp_common_settings({})
   augroup END
 endif
 
@@ -86,56 +113,24 @@ if executable('pyls')
       \ 'whitelist': ['python'],
       \ })
 
-    autocmd FileType python setlocal omnifunc=lsp#complete
-
-    autocmd FileType python nmap <buffer><silent> gd        <plug>(lsp-definition)
-    autocmd FileType python nmap <buffer><silent> <C-]>     <plug>(lsp-definition)
-    autocmd FileType python nmap <buffer><silent> gD        <plug>(lsp-references)
-    autocmd FileType python nmap <buffer><silent> <leader>s <plug>(lsp-document-symbol)
-    autocmd FileType python nmap <buffer><silent> <leader>y <plug>(lsp-workspace-symbol)
-    autocmd FileType python nmap <buffer><silent> <leader>f <plug>(lsp-document-format)
-    autocmd FileType python nmap <buffer><silent> <leader>k <plug>(lsp-hover)
-    autocmd FileType python nmap <buffer><silent> <leader>i <plug>(lsp-implementation)
-    autocmd FileType python nmap <buffer><silent> <leader>n <plug>(lsp-rename)
-    autocmd FileType python nmap <buffer><silent> <leader>a <plug>(lsp-code-action)
-    autocmd FileType python nmap <buffer><silent> <leader>e <plug>(lsp-next-error)
-
-    autocmd FileType python autocmd CursorHold <buffer> LspHover
-    autocmd FileType python autocmd BufWritePre <buffer> LspDocumentFormatSync
+    autocmd FileType python call s:lsp_common_settings({})
   augroup END
 endif
 
-" TypeScript
+" TypeScript & JavaScript
 if executable('javascript-typescript-stdio')
-  augroup LspTypeScript
+  augroup LspTsJs
     autocmd!
     au User lsp_setup call lsp#register_server({
-          \ 'name': 'typescript',
+          \ 'name': 'tsjs',
           \ 'cmd': ['javascript-typescript-stdio'],
-          \ 'whitelist': ['typescript', 'typescriptreact'],
+          \ 'whitelist': ['typescript', 'typescriptreact', 'javascript', 'javascriptreact'],
           \ })
 
-    function! s:setup_lsp_typescript()
-      setlocal omnifunc=lsp#complete
-
-      nmap <buffer><silent> gd        <plug>(lsp-definition)
-      nmap <buffer><silent> <C-]>     <plug>(lsp-definition)
-      nmap <buffer><silent> gD        <plug>(lsp-references)
-      nmap <buffer><silent> <leader>s <plug>(lsp-document-symbol)
-      nmap <buffer><silent> <leader>y <plug>(lsp-workspace-symbol)
-      "nmap <buffer><silent> <leader>f <plug>(lsp-document-format)
-      nmap <buffer><silent> <leader>k <plug>(lsp-hover)
-      nmap <buffer><silent> <leader>i <plug>(lsp-implementation)
-      nmap <buffer><silent> <leader>n <plug>(lsp-rename)
-      nmap <buffer><silent> <leader>a <plug>(lsp-code-action)
-      nmap <buffer><silent> <leader>e <plug>(lsp-next-error)
-
-      autocmd CursorHold <buffer> LspHover
-      "autocmd BufWritePre <buffer> LspDocumentFormatSync
-    endfunction
-
-    autocmd FileType typescript      call s:setup_lsp_typescript()
-    autocmd FileType typescriptreact call s:setup_lsp_typescript()
+    autocmd FileType typescript      call s:lsp_common_settings({'format': v:false})
+    autocmd FileType typescriptreact call s:lsp_common_settings({'format': v:false})
+    autocmd FileType javascript      call s:lsp_common_settings({'format': v:false})
+    autocmd FileType javascriptreact call s:lsp_common_settings({'format': v:false})
   augroup END
 endif
 
@@ -150,21 +145,6 @@ if executable('sourcekit-lsp')
       \ 'whitelist': ['swift'],
       \ })
 
-    autocmd FileType swift setlocal omnifunc=lsp#complete
-
-    autocmd FileType swift nmap <buffer><silent> gd        <plug>(lsp-definition)
-    autocmd FileType swift nmap <buffer><silent> <C-]>     <plug>(lsp-definition)
-    autocmd FileType swift nmap <buffer><silent> gD        <plug>(lsp-references)
-    autocmd FileType swift nmap <buffer><silent> <leader>s <plug>(lsp-document-symbol)
-    autocmd FileType swift nmap <buffer><silent> <leader>y <plug>(lsp-workspace-symbol)
-    autocmd FileType swift nmap <buffer><silent> <leader>f <plug>(lsp-document-format)
-    autocmd FileType swift nmap <buffer><silent> <leader>k <plug>(lsp-hover)
-    autocmd FileType swift nmap <buffer><silent> <leader>i <plug>(lsp-implementation)
-    autocmd FileType swift nmap <buffer><silent> <leader>n <plug>(lsp-rename)
-    autocmd FileType swift nmap <buffer><silent> <leader>a <plug>(lsp-code-action)
-    autocmd FileType swift nmap <buffer><silent> <leader>e <plug>(lsp-next-error)
-
-    autocmd FileType swift autocmd CursorHold <buffer> LspHover
-    autocmd FileType swift autocmd BufWritePre <buffer> LspDocumentFormatSync
+    autocmd FileType swift call s:lsp_common_settings({})
   augroup END
 endif
