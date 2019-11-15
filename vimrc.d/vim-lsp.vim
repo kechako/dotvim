@@ -124,12 +124,18 @@ if executable('javascript-typescript-stdio')
     au User lsp_setup call lsp#register_server({
           \ 'name': 'tsjs',
           \ 'cmd': ['javascript-typescript-stdio'],
-          \ 'whitelist': ['typescript', 'typescriptreact', 'javascript', 'javascriptreact'],
+          \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), ['tsconfig.json', 'package.json', '.git/']))},
+          \ 'whitelist': [
+          \   'typescript',
+          \   'javascript',
+          \   'typescriptreact',
+          \   'javascriptreact',
+          \ ],
           \ })
 
     autocmd FileType typescript      call s:lsp_common_settings({'format': v:false})
-    autocmd FileType typescriptreact call s:lsp_common_settings({'format': v:false})
     autocmd FileType javascript      call s:lsp_common_settings({'format': v:false})
+    autocmd FileType typescriptreact call s:lsp_common_settings({'format': v:false})
     autocmd FileType javascriptreact call s:lsp_common_settings({'format': v:false})
   augroup END
 endif
