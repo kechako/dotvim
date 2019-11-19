@@ -66,3 +66,6 @@
 [submodule "pack/plugins/start/emmet-vim"]
 	path = pack/plugins/start/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
+[submodule "pack/plugins/start/yajs.vim"]
+	path = pack/plugins/start/yajs.vim
+	url = https://github.com/othree/yajs.vim.git
