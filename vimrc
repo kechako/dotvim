@@ -53,7 +53,7 @@ let g:netrw_liststyle=1
 let g:netrw_home=expand("$HOME/.vim/netrw")
 " コマンドラインの高さ
 set cmdheight=4
-" 行版行
+" 行番号
 set number
 set numberwidth=6
 " ビープを鳴らさない
