@@ -56,6 +56,8 @@ set cmdheight=4
 " 行番号
 set number
 set numberwidth=6
+" 行番号を相対表示する
+set relativenumber
 " ビープを鳴らさない
 set vb t_vb=
 " leader に ',' を設定
