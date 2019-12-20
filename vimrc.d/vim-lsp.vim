@@ -84,7 +84,7 @@ if executable('gopls')
       \ 'whitelist': ['go'],
       \ })
 
-    autocmd FileType go call s:lsp_common_settings({})
+    autocmd FileType go call s:lsp_common_settings({'format': v:false})
   augroup END
 endif
 
