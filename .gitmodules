@@ -71,3 +71,6 @@
 [submodule "pack/plugins/start/vim-goimports"]
 	path = pack/plugins/start/vim-goimports
 	url = https://github.com/mattn/vim-goimports.git
+[submodule "pack/plugins/start/vim-goaddtags"]
+	path = pack/plugins/start/vim-goaddtags
+	url = https://github.com/mattn/vim-goaddtags.git
