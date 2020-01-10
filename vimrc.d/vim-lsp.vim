@@ -85,6 +85,9 @@ if executable('gopls')
       \ })
 
     autocmd FileType go call s:lsp_common_settings({'format': v:false})
+
+    autocmd FileType go autocmd BufWritePre <buffer> 
+      \ call execute('LspCodeActionSync source.organizeImports')
   augroup END
 endif
 
