@@ -91,12 +91,6 @@ if has('mouse')
   set mouse=a
 endif
 
-" signs
-if has('signs')
-  " 目印行を常に表示する
-  set signcolumn=yes
-endif
-
 " フォントの設定
 if has("gui_running")
   set guifont=Cica:h14:cSHIFTJIS:qDRAFT
