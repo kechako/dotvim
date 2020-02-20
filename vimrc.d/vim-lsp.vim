@@ -34,6 +34,7 @@ function s:on_lsp_buffer_enabled()
   nmap <buffer><silent> <leader>n <plug>(lsp-rename)
   nmap <buffer><silent> <leader>a <plug>(lsp-code-action)
   nmap <buffer><silent> <leader>e <plug>(lsp-next-error)
+  nmap <buffer><silent> <leader>m :make<CR>
 endfunction
 
 " Go
