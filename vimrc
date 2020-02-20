@@ -191,9 +191,9 @@ endif " has("autocmd")
 if has('quickfix')
   set previewheight=6
 
-  map <C-j> :cnext<CR>
-  map <C-k> :cprevious<CR>
-  nnoremap <leader>q :cclose<CR>
+  nnoremap <silent> <C-n>     :cnext<CR>
+  nnoremap <silent> <C-p>     :cprevious<CR>
+  nnoremap <silent> <leader>q :cclose<CR>
 endif
 
 if has('langmap') && exists('+langnoremap')
