@@ -44,11 +44,14 @@ if executable('gopls')
         \ 'cmd': {server_info->['gopls', 'serve']},
         \ 'root_uri': {server_info->s:find_root_uri(['go.mod', '.git/'])},
         \ 'initialization_options': {
-        \   'completeUnimported': v:true,
+        \   'buildFlags': '',
+        \   'env': '',
+        \   'hoverKind': 'FullDocumentation',
         \   'usePlaceholders': v:true,
         \   'staticcheck': v:true,
         \   'completionDocumentation': v:true,
-        \   'caseSensitiveCompletion': v:true,
+        \   'completeUnimported': v:true,
+        \   'matcher': 'caseSensitive',
         \ },
         \ 'whitelist': ['go'],
         \ })
