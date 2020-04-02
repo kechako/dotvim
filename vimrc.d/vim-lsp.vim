@@ -101,8 +101,27 @@ if executable('javascript-typescript-stdio')
 endif
 
 " swift
-let $TOOLCHAINS = "swift"
-if executable('sourcekit-lsp')
+let s:swift_mode = 0 " 0: none, 1: sourcekit-lsp with xcrun, 2: sourcekit-lsp
+if executable('xcrun')
+  silent call system('xcrun --find sourcekit-lsp')
+  if v:shell_error == 0
+    let s:swift_mode = 1
+  endif
+endif
+if s:swift_mode == 0 && executable('sourcekit-lsp')
+  let s:swift_mode = 2
+endif
+
+if s:swift_mode == 1
+  autocmd User lsp_setup call lsp#register_server({
+        \ 'name': 'swift',
+        \ 'cmd': ['xcrun', 'sourcekit-lsp'],
+        \ 'whitelist': ['swift'],
+        \ })
+
+  autocmd FileType swift autocmd BufWritePre <buffer> LspDocumentFormatSync
+
+elseif s:swift_mode == 2
   autocmd User lsp_setup call lsp#register_server({
         \ 'name': 'swift',
         \ 'cmd': ['sourcekit-lsp'],
