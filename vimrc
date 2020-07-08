@@ -115,7 +115,7 @@ if &t_Co > 2 || has("gui_running")
     if $COLORTERM =~? 'truecolor\|24bit'
       " True Color 有効化
       set termguicolors
-      if $VTE_VERSION == "" || $VTE_VERSION == "6002"
+      if $VTE_VERSION == "" || $VTE_VERSION == "6002" || $VTE_VERSION == "6003"
         let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
         let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
       endif
