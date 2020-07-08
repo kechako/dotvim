@@ -108,6 +108,8 @@ if &t_Co > 2 || has("gui_running")
     set termguicolors
     " カラーテーマ設定
     colorscheme iceberg
+    " ダークテーマに設定
+    set background=dark
   else
     " True Color をサポートしている場合
     if $COLORTERM =~? 'truecolor\|24bit'
@@ -123,6 +125,8 @@ if &t_Co > 2 || has("gui_running")
     if &t_Co >= 256 || has("gui_running")
       " カラーテーマ設定
       colorscheme iceberg
+      " ダークテーマに設定
+      set background=dark
     endif
   endif
 
