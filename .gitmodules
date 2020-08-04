@@ -66,3 +66,6 @@
 [submodule "pack/plugins/start/vim-gorun"]
 	path = pack/plugins/start/vim-gorun
 	url = https://github.com/mattn/vim-gorun.git
+[submodule "pack/plugins/start/nerdtree"]
+	path = pack/plugins/start/nerdtree
+	url = https://github.com/preservim/nerdtree.git
