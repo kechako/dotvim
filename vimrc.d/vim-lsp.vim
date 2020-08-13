@@ -158,11 +158,23 @@ if s:swift_mode == 0 && executable('sourcekit-lsp')
   let s:swift_mode = 2
 endif
 
+let s:sourcekit_lsp_args = [
+      \ '-Xswiftc',
+      \ '-sdk',
+      \ '-Xswiftc',
+      \ '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk',
+      \ '-Xswiftc',
+      \ '-target',
+      \ '-Xswiftc',
+      \ 'x86_64-apple-ios13.6-simulator',
+      \ ]
+
 if s:swift_mode == 1
   autocmd User lsp_setup call lsp#register_server({
         \ 'name': 'swift',
-        \ 'cmd': ['xcrun', 'sourcekit-lsp'],
-        \ 'whitelist': ['swift'],
+        \ 'cmd': ['xcrun', 'sourcekit-lsp'] + s:sourcekit_lsp_args,
+        \ 'root_uri': {server_info->s:find_root_uri(['Pacakge.swift'])},
+        \ 'whitelist': ['swift', 'metal', 'objective-c', 'objective-cpp'],
         \ })
 
   autocmd FileType swift autocmd BufWritePre <buffer> LspDocumentFormatSync
@@ -170,8 +182,8 @@ if s:swift_mode == 1
 elseif s:swift_mode == 2
   autocmd User lsp_setup call lsp#register_server({
         \ 'name': 'swift',
-        \ 'cmd': ['sourcekit-lsp'],
-        \ 'whitelist': ['swift'],
+        \ 'cmd': ['sourcekit-lsp'] + s:sourcekit_lsp_args,
+        \ 'whitelist': ['swift', 'metal', 'objective-c', 'objective-cpp'],
         \ })
 
   autocmd FileType swift autocmd BufWritePre <buffer> LspDocumentFormatSync
