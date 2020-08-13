@@ -100,6 +100,52 @@ if executable('javascript-typescript-stdio')
         \ })
 endif
 
+" C#
+function s:find_file_upwards(exp, path) abort
+  let l:files = glob(a:path . '/' . a:exp, 0, 1)
+
+  if empty(l:files)
+    let l:parent = fnamemodify(a:path . '/../', ':p:h')
+    if l:parent == a:path
+      return ''
+    endif
+    return s:find_file_upwards(a:exp, l:parent)
+  else
+    return fnamemodify(l:files[0], ':p')
+  endif
+endfunction
+
+function s:find_csharp_projct_file() abort
+  let l:projfile = s:find_file_upwards('*.sln', fnamemodify(lsp#utils#get_buffer_path(), ':p:h'))
+
+  if empty(l:projfile)
+    let l:projfile =  s:find_file_upwards('*.csproj', fnamemodify(lsp#utils#get_buffer_path(), ':p:h'))
+  endif
+
+  if empty(l:projfile)
+    return lsp#utils#get_buffer_path()
+  endif
+
+  return l:projfile
+endfunction
+
+function s:find_csharp_projct_root_uri() abort
+  return lsp#utils#path_to_uri(fnamemodify(s:find_csharp_projct_file(), ':p:h'))
+endfunction
+
+if executable('omnisharp')
+  autocmd User lsp_setup call lsp#register_server({
+        \ 'name': 'csharp',
+        \ 'cmd': {server_info-> ['omnisharp', '-s', s:find_csharp_projct_file(), '-lsp'] },
+        \ 'root_uri': {server_info->s:find_csharp_projct_root_uri()},
+        \ 'whitelist': [
+        \   'cs',
+        \ ],
+        \ })
+
+  autocmd FileType cs autocmd BufWritePre <buffer> LspDocumentFormatSync
+endif
+
 " swift
 let s:swift_mode = 0 " 0: none, 1: sourcekit-lsp with xcrun, 2: sourcekit-lsp
 if executable('xcrun')
