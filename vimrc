@@ -209,6 +209,12 @@ if has("autocmd")
     autocmd QuickFixCmdPost *grep*,make cwindow
   augroup END
 
+  " バッファーが閉じられたとき Quickfix が最後のバッファーのとき
+  " Quickfix を自動で閉じる
+  augroup QuickFixAutoClose
+    autocmd BufEnter * if (winnr("$") == 1 && &buftype == "quickfix") | q | endif
+  augroup END
+
   " カーソル位置を復元する設定
   augroup RestoreCursorPos
     autocmd!
