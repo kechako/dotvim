@@ -135,7 +135,7 @@ if &t_Co > 2 || has("gui_running")
     \ 'active':{
     \   'right': [ [ 'lineinfo' ],
     \              [ 'percent' ],
-    \              [ 'charinfo', 'fileformat', 'fileencoding', 'filetype' ] ]
+    \              [ 'charinfo', 'fileformat', 'fileencoding', 'filetype', 'lsperror', 'lspwarning' ] ]
     \ },
     \ 'component': {
     \   'charinfo': 'U+%04B'
@@ -144,6 +144,14 @@ if &t_Co > 2 || has("gui_running")
     \   'filetype': 'LightLineFiletype',
     \   'fileformat': 'LightLineFileformat'
     \ },
+    \ 'component_expand': {
+    \   'lsperror': 'LightlineLspErrorCount',
+    \   'lspwarning': 'LightlineLspWarningCount'
+    \ },
+    \ 'component_type': {
+    \   'lsperror': 'error',
+    \   'lspwarning': 'warning'
+    \ },
     \ 'colorscheme': 'iceberg'
     \ }
   function! LightLineFiletype()
@@ -151,6 +159,34 @@ if &t_Co > 2 || has("gui_running")
   endfunction
   function! LightLineFileformat()
     return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+  endfunction
+
+  function LightlineLspErrorCount()
+    if !exists('*lsp#get_buffer_diagnostics_counts')
+      return ''
+    endif
+
+    let l:counts = lsp#get_buffer_diagnostics_counts()
+
+    if l:counts['error'] > 0
+      return printf('E:%d', l:counts['error'])
+    else
+      return ''
+    endif
+  endfunction
+
+  function LightlineLspWarningCount()
+    if !exists('*lsp#get_buffer_diagnostics_counts')
+      return ''
+    endif
+
+    let l:counts = lsp#get_buffer_diagnostics_counts()
+
+    if l:counts['warning'] > 0
+      return printf('W:%d', l:counts['warning'])
+    else
+      return ''
+    endif
   endfunction
 endif
 

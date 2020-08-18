@@ -193,3 +193,14 @@ augroup LspInstall
   autocmd!
   autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
+
+function s:on_lsp_diagnostics_updated_for_lightline()
+  if exists('*lightline#update')
+    call lightline#update()
+  endif
+endfunction
+
+augroup LspForLightline
+  autocmd!
+  autocmd User lsp_diagnostics_updated call s:on_lsp_diagnostics_updated_for_lightline()
+augroup END
