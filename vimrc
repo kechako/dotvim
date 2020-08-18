@@ -227,6 +227,12 @@ if has("autocmd")
 
   augroup END
 
+  " File types
+  augroup MyFileTypes
+    autocmd!
+    autocmd BufNewFile,BufRead *.metal	setf metal
+  augroup END
+
 else
 
   " autoindent を設定
