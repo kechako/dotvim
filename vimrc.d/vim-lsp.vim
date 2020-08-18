@@ -23,18 +23,22 @@ function s:on_lsp_buffer_enabled()
   setlocal omnifunc=lsp#complete
   setlocal signcolumn=yes
 
-  nmap <buffer><silent> gd        <plug>(lsp-definition)
-  nmap <buffer><silent> <C-]>     <plug>(lsp-definition)
-  nmap <buffer><silent> gD        <plug>(lsp-references)
-  nmap <buffer><silent> <leader>s <plug>(lsp-document-symbol)
-  nmap <buffer><silent> <leader>y <plug>(lsp-workspace-symbol)
-  nmap <buffer><silent> <leader>f <plug>(lsp-document-format)
-  nmap <buffer><silent> <leader>k <plug>(lsp-hover)
-  nmap <buffer><silent> <leader>i <plug>(lsp-implementation)
-  nmap <buffer><silent> <leader>n <plug>(lsp-rename)
-  nmap <buffer><silent> <leader>a <plug>(lsp-code-action)
-  nmap <buffer><silent> <leader>e <plug>(lsp-next-error)
-  nmap <buffer><silent> <leader>m :make<CR>
+  nmap <buffer><silent> gd         <plug>(lsp-definition)
+  nmap <buffer><silent> <C-]>      <plug>(lsp-definition)
+
+  nmap <buffer><silent> ga         <plug>(lsp-code-action)
+  nmap <buffer><silent> gr         <plug>(lsp-references)
+  nmap <buffer><silent> gi         <plug>(lsp-implementation)
+  nmap <buffer><silent> gt         <plug>(lsp-type-definition)
+  nmap <buffer><silent> K          <plug>(lsp-hover)
+  nmap <buffer><silent> gp         <plug>(lsp-previous-diagnostic)
+  nmap <buffer><silent> gn         <plug>(lsp-next-diagnostic)
+  nmap <buffer><silent> gD         <plug>(lsp-document-diagnostics)
+
+  nmap <buffer><silent> <leader>rn <plug>(lsp-rename)
+  nmap <buffer><silent> <leader>ds <plug>(lsp-document-symbol)
+  nmap <buffer><silent> <leader>ws <plug>(lsp-workspace-symbol)
+  nmap <buffer><silent> <leader>m  :make<CR>
 endfunction
 
 " Go
