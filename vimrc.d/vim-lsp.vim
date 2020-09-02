@@ -8,6 +8,9 @@ let g:lsp_signs_warning = {'text': '! '}
 let g:lsp_signs_information = {'text': 'i '}
 let g:lsp_signs_hint = {'text': '? '}
 
+" hightlight references
+highlight lspReference ctermbg=235 ctermfg=216 guibg=#1e2132 guifg=#e2a478
+
 let g:lsp_preview_keep_focus = 1
 
 function s:find_root_uri(filename)
