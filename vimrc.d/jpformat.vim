@@ -1,0 +1,1 @@
+let JpCountChars = 36

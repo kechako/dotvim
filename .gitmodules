@@ -69,3 +69,7 @@
 [submodule "pack/plugins/start/nerdtree"]
 	path = pack/plugins/start/nerdtree
 	url = https://github.com/preservim/nerdtree.git
+[submodule "pack/plugins/start/JpFormat.vim"]
+	path = pack/plugins/start/JpFormat.vim
+	url = https://github.com/fuenor/JpFormat.vim.git
+	ignore = dirty
