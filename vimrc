@@ -138,7 +138,8 @@ if &t_Co > 2 || has("gui_running")
     \              [ 'charinfo', 'fileformat', 'fileencoding', 'filetype', 'lsperror', 'lspwarning' ] ]
     \ },
     \ 'component': {
-    \   'charinfo': 'U+%04B'
+    \   'charinfo': 'U+%04B',
+    \   'lineinfo': '%3l:%-2v'
     \ },
     \ 'component_function': {
     \   'filetype': 'LightLineFiletype',
