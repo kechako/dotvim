@@ -109,25 +109,39 @@ endif
 
 " C#
 function s:find_file_upwards(exp, path) abort
-  let l:files = glob(a:path . '/' . a:exp, 0, 1)
+  if type(a:exp) == 3
+    for l:e in a:exp
+      let l:files = glob(a:path . '/' . l:e, 0, 1)
 
-  if empty(l:files)
-    let l:parent = fnamemodify(a:path . '/../', ':p:h')
-    if l:parent == a:path
-      return ''
+      if empty(l:files)
+        let l:parent = fnamemodify(a:path . '/../', ':p:h')
+        if l:parent == a:path
+          return ''
+        endif
+        return s:find_file_upwards(a:exp, l:parent)
+      else
+        return fnamemodify(l:files[0], ':p')
+      endif
+    endfor
+  elseif type(a:exp) == 1
+    let l:files = glob(a:path . '/' . a:exp, 0, 1)
+
+    if empty(l:files)
+      let l:parent = fnamemodify(a:path . '/../', ':p:h')
+      if l:parent == a:path
+        return ''
+      endif
+      return s:find_file_upwards(a:exp, l:parent)
+    else
+      return fnamemodify(l:files[0], ':p')
     endif
-    return s:find_file_upwards(a:exp, l:parent)
   else
-    return fnamemodify(l:files[0], ':p')
+    echoerr "The type of argument \"filename\" must be String or List"
   endif
 endfunction
 
-function s:find_csharp_projct_file() abort
-  let l:projfile = s:find_file_upwards('*.sln', fnamemodify(lsp#utils#get_buffer_path(), ':p:h'))
-
-  if empty(l:projfile)
-    let l:projfile =  s:find_file_upwards('*.csproj', fnamemodify(lsp#utils#get_buffer_path(), ':p:h'))
-  endif
+function s:find_csharp_project_file() abort
+  let l:projfile = s:find_file_upwards(['*.sln', '*.csproj'], fnamemodify(lsp#utils#get_buffer_path(), ':p:h'))
 
   if empty(l:projfile)
     return lsp#utils#get_buffer_path()
@@ -136,15 +150,15 @@ function s:find_csharp_projct_file() abort
   return l:projfile
 endfunction
 
-function s:find_csharp_projct_root_uri() abort
-  return lsp#utils#path_to_uri(fnamemodify(s:find_csharp_projct_file(), ':p:h'))
+function s:find_csharp_project_root_uri() abort
+  return lsp#utils#path_to_uri(fnamemodify(s:find_csharp_project_file(), ':p:h'))
 endfunction
 
 if executable('omnisharp')
   autocmd User lsp_setup call lsp#register_server({
         \ 'name': 'csharp',
-        \ 'cmd': {server_info-> ['omnisharp', '-s', s:find_csharp_projct_file(), '-lsp'] },
-        \ 'root_uri': {server_info->s:find_csharp_projct_root_uri()},
+        \ 'cmd': {server_info-> ['omnisharp', '-s', s:find_csharp_project_file(), '-lsp'] },
+        \ 'root_uri': {server_info->s:find_csharp_project_root_uri()},
         \ 'whitelist': [
         \   'cs',
         \ ],
