@@ -187,7 +187,7 @@ let s:sourcekit_lsp_args = [
       \ '-Xswiftc',
       \ '-target',
       \ '-Xswiftc',
-      \ 'x86_64-apple-ios13.6-simulator',
+      \ 'x86_64-apple-ios14.0-simulator',
       \ ]
 
 if s:swift_mode == 1
