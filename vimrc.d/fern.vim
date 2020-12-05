@@ -26,8 +26,8 @@ endfunction
 augroup __fern__
   autocmd!
   autocmd StdinReadPre * let s:std_in=1
-  autocmd VimEnter * ++nested if s:can_open_fern() | Fern . -drawer -stay -keep -toggle -reveal=% | endif
+  autocmd VimEnter * ++nested if s:can_open_fern() | Fern . -drawer -stay -toggle -reveal=% | endif
   autocmd FileType fern call s:fern_setup()
 augroup END
 
-nnoremap <silent> <leader>t :<c-u>Fern . -drawer -stay -keep -toggle -reveal=%<cr>
+nnoremap <silent> <leader>t :<c-u>Fern . -drawer -stay -toggle -reveal=%<cr>
