@@ -62,6 +62,8 @@ set relativenumber
 set vb t_vb=
 " leader に ',' を設定
 let mapleader = ","
+" キーコードの待ち時間を50msに設定
+set ttimeoutlen=50
 
 " <C-p>, <C-n> による履歴の参照の動作を <Up>, <Down> に合わせる
 cnoremap <C-p> <Up>
