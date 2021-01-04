@@ -56,9 +56,15 @@ if executable('gopls')
         \   'hoverKind': 'FullDocumentation',
         \   'usePlaceholders': v:true,
         \   'staticcheck': v:true,
-        \   'completionDocumentation': v:true,
-        \   'completeUnimported': v:true,
-        \   'matcher': 'caseSensitive',
+        \   'codelens': {
+        \     'gc_details': v:false,
+        \     'generate': v:true,
+        \     'regenerate_cgo': v:true,
+        \     'test': v:true,
+        \     'tidy': v:true,
+        \     'upgrade_dependency': v:true,
+        \     'vendor': v:true,
+        \   },
         \ },
         \ 'whitelist': ['go'],
         \ })
