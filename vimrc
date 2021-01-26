@@ -61,7 +61,7 @@ set relativenumber
 " ビープを鳴らさない
 set vb t_vb=
 " leader に ',' を設定
-let mapleader = ","
+let mapleader = "\<Space>"
 " キーコードの待ち時間を50msに設定
 set ttimeoutlen=50
 
