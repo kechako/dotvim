@@ -1,12 +1,12 @@
 " vim-lsp
 let g:lsp_text_edit_enabled = 0
 let g:lsp_async_completion = 1
-let g:lsp_signs_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
-let g:lsp_signs_error = {'text': '!!'}
-let g:lsp_signs_warning = {'text': '! '}
-let g:lsp_signs_information = {'text': 'i '}
-let g:lsp_signs_hint = {'text': '? '}
+let g:lsp_diagnostics_signs_enabled = 1
+let g:lsp_diagnostics_signs_error = {'text': '✗'}
+let g:lsp_diagnostics_signs_warning = {'text': '‼'}
+let g:lsp_diagnostics_signs_information = {'text': 'ii'}
+let g:lsp_diagnostics_signs_hint = {'text': '??'}
 
 " hightlight references
 highlight lspReference ctermbg=235 ctermfg=216 guibg=#1e2132 guifg=#e2a478
