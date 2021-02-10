@@ -10,6 +10,7 @@ let s:fzf_dirs = [
 for fzf_dir in s:fzf_dirs
   if isdirectory(fzf_dir)
     let &runtimepath .= ',' . fzf_dir
+    break
   endif
 endfor
 
