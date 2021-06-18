@@ -10,10 +10,6 @@
 	path = pack/plugins/start/tagbar
 	url = https://github.com/majutsushi/tagbar
 	ignore = dirty
-[submodule "pack/plugins/start/vim-gfm-syntax"]
-	path = pack/plugins/start/vim-gfm-syntax
-	url = https://github.com/rhysd/vim-gfm-syntax.git
-	ignore = dirty
 [submodule "pack/plugins/start/yats.vim"]
 	path = pack/plugins/start/yats.vim
 	url = https://github.com/HerringtonDarkholme/yats.vim.git
