@@ -1,3 +1,4 @@
+let g:fern#default_exclude = '\.meta$'
 let g:fern#renderer = 'nerdfont'
 
 function s:fern_setup() abort
