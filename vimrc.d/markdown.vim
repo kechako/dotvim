@@ -1,2 +1,2 @@
 " markdown
-let g:markdown_fenced_languages = ['go', 'ruby', 'swift', 'cs', 'rust']
+let g:markdown_fenced_languages = ['go', 'ruby', 'swift', 'cs', 'rust', 'csharp=cs']
