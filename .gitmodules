@@ -86,3 +86,6 @@
 	path = pack/plugins/start/nerdfont.vim
 	url = https://github.com/lambdalisue/nerdfont.vim.git
 	ignore = dirty
+[submodule "pack/plugins/start/rust.vim"]
+	path = pack/plugins/start/rust.vim
+	url = https://github.com/rust-lang/rust.vim
