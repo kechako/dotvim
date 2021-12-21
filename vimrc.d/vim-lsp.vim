@@ -98,17 +98,15 @@ if executable('pyls')
   autocmd FileType python autocmd BufWritePre <buffer> LspDocumentFormatSync
 endif
 
-" TypeScript & JavaScript
-if executable('javascript-typescript-stdio')
+" TypeScript
+if executable('typescript-language-server')
   autocmd User lsp_setup call lsp#register_server({
-        \ 'name': 'tsjs',
-        \ 'cmd': ['javascript-typescript-stdio'],
+        \ 'name': 'ts',
+        \ 'cmd': ['typescript-language-server', '--stdio'],
         \ 'root_uri': {server_info->s:find_root_uri(['tsconfig.json', 'package.json', '.git/'])},
         \ 'whitelist': [
         \   'typescript',
-        \   'javascript',
         \   'typescriptreact',
-        \   'javascriptreact',
         \ ],
         \ })
 endif
