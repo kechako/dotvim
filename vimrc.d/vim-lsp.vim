@@ -67,7 +67,7 @@ if executable('gopls')
         \     'vendor': v:true,
         \   },
         \ },
-        \ 'whitelist': ['go'],
+        \ 'whitelist': ['go', 'template'],
         \ })
 
   autocmd FileType go autocmd BufWritePre <buffer> LspDocumentFormatSync
