@@ -44,7 +44,11 @@ set shortmess-=S
 set nofixendofline
 " 補完の一覧表示
 set wildmenu
-set wildmode=list:full
+if v:version >= 802 && has("patch4325")
+  set wildoptions=pum
+else
+  set wildmode=list:full
+endif
 " 曖昧な幅の文字を double width で表示
 set ambiwidth=double
 " netrw にてファイル名、サイズ、タイムスタンプをデフォルト表示
