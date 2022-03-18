@@ -94,7 +94,7 @@ endif
 
 " マウス
 if has('mouse')
-  set mouse=a
+  set mouse=nv
 endif
 
 " フォントの設定
