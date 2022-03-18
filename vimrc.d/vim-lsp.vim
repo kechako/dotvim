@@ -135,11 +135,22 @@ if executable('typescript-language-server')
         \ 'name': 'ts',
         \ 'cmd': ['typescript-language-server', '--stdio'],
         \ 'root_uri': {server_info->s:find_root_uri(['tsconfig.json', 'package.json', '.git/'])},
+        \ 'initialization_options': {
+        \   'diagnostics': v:true,
+        \ },
         \ 'whitelist': [
+        \   'javascript',
+        \   'javascriptreact',
         \   'typescript',
         \   'typescriptreact',
+        \   'typescript.tsx',
         \ ],
         \ })
+  autocmd FileType javascript autocmd BufWritePre <buffer> LspDocumentFormatSync
+  autocmd FileType javascriptreact autocmd BufWritePre <buffer> LspDocumentFormatSync
+  autocmd FileType typescript autocmd BufWritePre <buffer> LspDocumentFormatSync
+  autocmd FileType typescriptreact autocmd BufWritePre <buffer> LspDocumentFormatSync
+  autocmd FileType typescript.tsx autocmd BufWritePre <buffer> LspDocumentFormatSync
 endif
 
 " C#
