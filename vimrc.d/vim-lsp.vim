@@ -97,12 +97,15 @@ if executable('gopls')
         \   'symbolStyle': 'Dynamic',
         \   'verboseOutput': v:false,
         \ },
-        \ 'whitelist': ['go', 'template'],
+        \ 'whitelist': ['go', 'gomod', 'gowork', 'template'],
         \ })
 
   autocmd FileType go autocmd BufWritePre <buffer> LspDocumentFormatSync
   autocmd FileType go autocmd BufWritePre <buffer> 
         \ call execute('LspCodeActionSync source.organizeImports')
+  autocmd FileType gomod autocmd BufWritePre <buffer> LspDocumentFormatSync
+  autocmd FileType gowork autocmd BufWritePre <buffer> LspDocumentFormatSync
+  autocmd FileType template autocmd BufWritePre <buffer> LspDocumentFormatSync
 endif
 
 " Rust
