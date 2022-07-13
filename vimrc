@@ -75,6 +75,26 @@ set nrformats+=unsigned
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
+" 折り返し行のカーソル移動を簡単にする
+nmap gj gj<SID>g
+nmap gk gk<SID>g
+nnoremap <script> <SID>gj gj<SID>g
+nnoremap <script> <SID>gk gk<SID>g
+nnoremap <script> <SID>gq <Nop>
+nmap <SID>g <Nop>
+
+" 画面サイズの変更を簡単にする
+nmap <C-w>+ <C-w>+<SID>ws
+nmap <C-w>- <C-w>-<SID>ws
+nmap <C-w>> <C-w>><SID>ws
+nmap <C-w>< <C-w><<SID>ws
+nnoremap <script> <SID>ws+ <C-w>+<SID>ws
+nnoremap <script> <SID>ws- <C-w>-<SID>ws
+nnoremap <script> <SID>ws> <C-w>><SID>ws
+nnoremap <script> <SID>ws< <C-w><<SID>ws
+nnoremap <script> <SID>wsq <Nop>
+nmap <SID>ws <Nop>
+
 " grep プログラム設定
 if executable('jvgrep')
   set grepprg=jvgrep
