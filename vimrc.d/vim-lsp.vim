@@ -121,6 +121,23 @@ if executable('rls')
   autocmd FileType rust autocmd BufWritePre <buffer> LspDocumentFormatSync
 endif
 
+" Zig
+let s:zig_path = expand('~/zls/zls')
+if executable(s:zig_path)
+  autocmd User lsp_setup call lsp#register_server({
+        \ 'name': 'zls',
+        \ 'cmd': {server_info->[s:zig_path]},
+        \ 'root_uri': {server_info->s:find_root_uri(['.git/'])},
+        \ 'initialization_options': {
+        \ },
+        \ 'whitelist': ['zig'],
+        \ })
+
+  "autocmd FileType go autocmd BufWritePre <buffer> LspDocumentFormatSync
+  "autocmd FileType go autocmd BufWritePre <buffer> 
+  "      \ call execute('LspCodeActionSync source.organizeImports')
+endif
+
 " Python
 if executable('pyls')
   autocmd User lsp_setup call lsp#register_server({
