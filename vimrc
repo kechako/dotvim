@@ -95,6 +95,9 @@ nnoremap <script> <SID>ws< <C-w><<SID>ws
 nnoremap <script> <SID>wsq <Nop>
 nmap <SID>ws <Nop>
 
+" 検索ハイライトを消す
+nmap <buffer><silent> <Esc><Esc> :nohlsearch<CR>
+
 " grep プログラム設定
 if executable('jvgrep')
   set grepprg=jvgrep
