@@ -9,6 +9,10 @@ let g:lsp_diagnostics_signs_warning = {'text': '‼'}
 let g:lsp_diagnostics_signs_information = {'text': 'ii'}
 let g:lsp_diagnostics_signs_hint = {'text': '??'}
 
+let g:lsp_diagnostics_virtual_text_insert_mode_enabled = 1
+let g:lsp_diagnostics_virtual_text_prefix = "》"
+let g:lsp_diagnostics_virtual_text_align = "right"
+
 " hightlight references
 highlight lspReference ctermbg=235 ctermfg=216 guibg=#1e2132 guifg=#e2a478
 
