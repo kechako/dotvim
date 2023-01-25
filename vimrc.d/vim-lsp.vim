@@ -47,6 +47,10 @@ function s:on_lsp_buffer_enabled()
   nmap <buffer><silent> <leader>ds <plug>(lsp-document-symbol)
   nmap <buffer><silent> <leader>ws <plug>(lsp-workspace-symbol)
   nmap <buffer><silent> <leader>m  :make<CR>
+
+  let g:lsp_format_sync_timeout = 1000
+  autocmd! BufWritePre *.cs,*.go,go.mod,go.work,*.tmpl,*.js,*.jsx,*.ts,*.tsx,*.py,*.rs,*.swift,*.zig call execute('LspDocumentFormatSync')
+  autocmd! BufWritePre *.go call execute('LspCodeActionSync source.organizeImports')
 endfunction
 
 " Go
@@ -103,13 +107,6 @@ if executable('gopls')
         \ },
         \ 'whitelist': ['go', 'gomod', 'gowork', 'template'],
         \ })
-
-  autocmd FileType go autocmd BufWritePre <buffer> LspDocumentFormatSync
-  autocmd FileType go autocmd BufWritePre <buffer> 
-        \ call execute('LspCodeActionSync source.organizeImports')
-  autocmd FileType gomod autocmd BufWritePre <buffer> LspDocumentFormatSync
-  autocmd FileType gowork autocmd BufWritePre <buffer> LspDocumentFormatSync
-  autocmd FileType template autocmd BufWritePre <buffer> LspDocumentFormatSync
 endif
 
 " Rust
@@ -121,8 +118,6 @@ if executable('rls')
         \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
         \ 'whitelist': ['rust'],
         \ })
-
-  autocmd FileType rust autocmd BufWritePre <buffer> LspDocumentFormatSync
 endif
 
 " Zig
@@ -136,10 +131,6 @@ if executable(s:zig_path)
         \ },
         \ 'whitelist': ['zig'],
         \ })
-
-  "autocmd FileType go autocmd BufWritePre <buffer> LspDocumentFormatSync
-  "autocmd FileType go autocmd BufWritePre <buffer> 
-  "      \ call execute('LspCodeActionSync source.organizeImports')
 endif
 
 " Python
@@ -149,8 +140,6 @@ if executable('pyls')
         \ 'cmd': ['pyls'],
         \ 'whitelist': ['python'],
         \ })
-
-  autocmd FileType python autocmd BufWritePre <buffer> LspDocumentFormatSync
 endif
 
 " TypeScript
@@ -170,11 +159,6 @@ if executable('typescript-language-server')
         \   'typescript.tsx',
         \ ],
         \ })
-  autocmd FileType javascript autocmd BufWritePre <buffer> LspDocumentFormatSync
-  autocmd FileType javascriptreact autocmd BufWritePre <buffer> LspDocumentFormatSync
-  autocmd FileType typescript autocmd BufWritePre <buffer> LspDocumentFormatSync
-  autocmd FileType typescriptreact autocmd BufWritePre <buffer> LspDocumentFormatSync
-  autocmd FileType typescript.tsx autocmd BufWritePre <buffer> LspDocumentFormatSync
 endif
 
 " C#
@@ -233,8 +217,6 @@ if executable('omnisharp')
         \   'cs',
         \ ],
         \ })
-
-  autocmd FileType cs autocmd BufWritePre <buffer> LspDocumentFormatSync
 endif
 
 " swift
@@ -267,17 +249,12 @@ if s:swift_mode == 1
         \ 'root_uri': {server_info->s:find_root_uri(['Pacakge.swift'])},
         \ 'whitelist': ['swift', 'metal', 'objective-c', 'objective-cpp'],
         \ })
-
-  autocmd FileType swift autocmd BufWritePre <buffer> LspDocumentFormatSync
-
 elseif s:swift_mode == 2
   autocmd User lsp_setup call lsp#register_server({
         \ 'name': 'swift',
         \ 'cmd': ['sourcekit-lsp'] + s:sourcekit_lsp_args,
         \ 'whitelist': ['swift', 'metal', 'objective-c', 'objective-cpp'],
         \ })
-
-  autocmd FileType swift autocmd BufWritePre <buffer> LspDocumentFormatSync
 endif
 
 augroup LspInstall
