@@ -49,8 +49,13 @@ function s:on_lsp_buffer_enabled()
   nmap <buffer><silent> <leader>m  :make<CR>
 
   let g:lsp_format_sync_timeout = 1000
-  autocmd! BufWritePre *.cs,*.go,go.mod,go.work,*.tmpl,*.js,*.jsx,*.ts,*.tsx,*.py,*.rs,*.swift,*.zig call execute('LspDocumentFormatSync')
-  autocmd! BufWritePre *.go call execute('LspCodeActionSync source.organizeImports')
+  autocmd! BufWritePre *.go call s:goFormat()
+  autocmd! BufWritePre *.cs,go.mod,go.work,*.tmpl,*.js,*.jsx,*.ts,*.tsx,*.py,*.rs,*.swift,*.zig call execute('LspDocumentFormatSync')
+endfunction
+
+function s:goFormat()
+  call execute('LspCodeActionSync source.organizeImports')
+  call execute('LspDocumentFormatSync')
 endfunction
 
 " Go
