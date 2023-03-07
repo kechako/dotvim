@@ -116,12 +116,21 @@ if executable('gopls')
 endif
 
 " Rust
-if executable('rls')
+if executable('rustup')
   autocmd User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+        \ 'name': 'Rust Language Server',
+        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rust-analyzer']},
         \ 'root_uri': {server_info->s:find_root_uri(['Cargo.toml', '.git/'])},
-        \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
+        \ 'initialization_options': {
+        \   'cargo': {
+        \     'buildScripts': {
+        \       'enable': v:true,
+        \     },
+        \   },
+        \   'procMacro': {
+        \     'enable': v:true,
+        \   },
+        \ },
         \ 'whitelist': ['rust'],
         \ })
 endif
