@@ -37,4 +37,4 @@ augroup __fern__
   autocmd FileType fern call s:fern_setup()
 augroup END
 
-nnoremap <silent> <leader>t :<c-u>Fern . -drawer -stay -toggle -reveal=%<cr>
+nnoremap <silent> <leader>o :<c-u>Fern . -drawer -stay -toggle -reveal=%<cr>

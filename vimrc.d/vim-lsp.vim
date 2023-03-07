@@ -47,6 +47,7 @@ function s:on_lsp_buffer_enabled()
   nmap <buffer><silent> <leader>ds <plug>(lsp-document-symbol)
   nmap <buffer><silent> <leader>ws <plug>(lsp-workspace-symbol)
   nmap <buffer><silent> <leader>m  :make<CR>
+  nmap <buffer><silent> <leader>t  :make test<CR>
 
   let g:lsp_format_sync_timeout = 1000
   autocmd! BufWritePre *.go call s:goFormat()
