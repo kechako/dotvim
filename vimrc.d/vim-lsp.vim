@@ -288,6 +288,17 @@ elseif s:swift_mode == 2
         \ })
 endif
 
+" Elixir
+if executable('elixir-ls')
+  autocmd User lsp_setup call lsp#register_server({
+        \ 'name': 'elixir',
+        \ 'cmd': {server_info->['elixir-ls']},
+        \ 'root_uri': {server_info->s:find_root_uri(['.git/'])},
+        \ 'initialization_options': {},
+        \ 'whitelist': ['elixir'],
+        \ })
+endif
+
 augroup LspInstall
   autocmd!
   autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
