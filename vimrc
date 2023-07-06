@@ -64,8 +64,10 @@ set numberwidth=6
 set relativenumber
 " ビープを鳴らさない
 set vb t_vb=
-" leader に ',' を設定
+" Leader に '<Space>' を設定
 let mapleader = "\<Space>"
+" LocalLeader に '' を設定
+let maplocalleader = "\\"
 " キーコードの待ち時間を50msに設定
 set ttimeoutlen=50
 " C-A や C-X によるインクリメント、デクリメントで負号を無視する
