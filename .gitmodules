@@ -93,3 +93,12 @@
 [submodule "pack/plugins/start/vim-orgmode"]
 	path = pack/plugins/start/vim-orgmode
 	url = https://github.com/jceb/vim-orgmode.git
+	ignore = dirty
+[submodule "pack/plugins/start/vim-terraform"]
+	path = pack/plugins/start/vim-terraform
+	url = https://github.com/hashivim/vim-terraform.git
+	ignore = dirty
+[submodule "pack/plugins/start/vim-flutter"]
+	path = pack/plugins/start/vim-flutter
+	url = https://github.com/thosakwe/vim-flutter
+	ignore = dirty
