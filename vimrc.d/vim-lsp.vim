@@ -160,11 +160,10 @@ if executable('rustup')
 endif
 
 " Zig
-let s:zig_path = expand('~/zls/zls')
-if executable(s:zig_path)
+if executable('zls')
   autocmd User lsp_setup call lsp#register_server({
         \ 'name': 'zls',
-        \ 'cmd': {server_info->[s:zig_path]},
+        \ 'cmd': {server_info->['zls']},
         \ 'root_uri': {server_info->s:find_root_uri(['.git/'])},
         \ 'initialization_options': {
         \ },
