@@ -102,3 +102,7 @@
 	path = pack/plugins/start/vim-flutter
 	url = https://github.com/thosakwe/vim-flutter
 	ignore = dirty
+[submodule "pack/plugins/start/dart-vim-plugin"]
+	path = pack/plugins/start/dart-vim-plugin
+	url = https://github.com/dart-lang/dart-vim-plugin
+	ignore = dirty
