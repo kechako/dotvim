@@ -51,7 +51,7 @@ function s:on_lsp_buffer_enabled()
 
   let g:lsp_format_sync_timeout = 1000
   autocmd! BufWritePre *.go call s:goFormat()
-  autocmd! BufWritePre *.cs,go.mod,go.work,*.tmpl,*.js,*.jsx,*.ts,*.tsx,*.py,*.rs,*.swift,*.zig call execute('LspDocumentFormatSync')
+  autocmd! BufWritePre *.cs,go.mod,go.work,*.tmpl,*.js,*.jsx,*.ts,*.tsx,*.py,*.rs,*.swift,*.zig,*.dart call execute('LspDocumentFormatSync')
 endfunction
 
 function s:goFormat()
@@ -168,6 +168,18 @@ if executable('zls')
         \ 'initialization_options': {
         \ },
         \ 'whitelist': ['zig'],
+        \ })
+endif
+
+" Dart
+if executable('dart')
+  autocmd User lsp_setup call lsp#register_server({
+        \ 'name': 'dart',
+        \ 'cmd': {server_info->['dart', 'language-server']},
+        \ 'root_uri': {server_info->s:find_root_uri(['pubspec.yaml', '.git/'])},
+        \ 'initialization_options': {
+        \ },
+        \ 'whitelist': ['dart'],
         \ })
 endif
 
