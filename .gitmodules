@@ -102,3 +102,7 @@
 	path = pack/plugins/start/dart-vim-plugin
 	url = https://github.com/dart-lang/dart-vim-plugin
 	ignore = dirty
+[submodule "pack/plugins/start/vim-clang-format"]
+	path = pack/plugins/start/vim-clang-format
+	url = https://github.com/rhysd/vim-clang-format.git
+	ignore = dirty
