@@ -49,8 +49,8 @@ if v:version >= 802 && has("patch4325")
 else
   set wildmode=list:full
 endif
-" 曖昧な幅の文字を double width で表示
-set ambiwidth=double
+" 曖昧な幅の文字を single width で表示
+set ambiwidth=single
 " netrw にてファイル名、サイズ、タイムスタンプをデフォルト表示
 let g:netrw_liststyle=1
 " .netrwhist 及び .netrwbook の格納場所
