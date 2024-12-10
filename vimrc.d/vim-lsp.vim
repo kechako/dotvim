@@ -59,7 +59,7 @@ def OnLspBufferEnabled()
 
   g:lsp_format_sync_timeout = 1000
   autocmd! BufWritePre *.go call go.Format()
-  autocmd! BufWritePre *.cs,go.mod,go.work,*.tmpl,*.js,*.jsx,*.ts,*.tsx,*.py,*.rs,*.swift,*.zig,*.dart,*.tf call execute('LspDocumentFormatSync')
+  autocmd! BufWritePre *.cs,go.mod,go.work,*.tmpl,*.js,*.mjs,*.jsx,*.ts,*.mts,*.tsx,*.py,*.rs,*.swift,*.zig,*.dart,*.tf call execute('LspDocumentFormatSync')
 enddef
 
 # Go
