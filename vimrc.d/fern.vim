@@ -38,5 +38,3 @@ augroup __fern__
 augroup END
 
 nnoremap <silent> <leader>o :<c-u>Fern . -drawer -stay -toggle -reveal=%<cr>
-
-let g:fern#renderer#nerdfont#padding = "  "
