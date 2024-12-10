@@ -162,6 +162,13 @@ if &t_Co > 2 || has("gui_running")
     endif
   endif
 
+  " 背景を透過する
+  if &termguicolors
+    hi Normal guibg=NONE
+  else
+    hi Normal ctermbg=NONE
+  endif
+
   " lightline.vim
   let g:lightline = {
     \ 'active':{
