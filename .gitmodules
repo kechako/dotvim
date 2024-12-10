@@ -106,3 +106,7 @@
 	path = pack/plugins/start/vim-clang-format
 	url = https://github.com/rhysd/vim-clang-format.git
 	ignore = dirty
+[submodule "pack/plugins/start/zig.vim"]
+	path = pack/plugins/start/zig.vim
+	url = https://github.com/ziglang/zig.vim.git
+	ignore = dirty
