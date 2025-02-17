@@ -11,12 +11,20 @@ def ServerCmd(server_info: dict<any>): list<string>
   return cmd
 enddef
 
+def LanguageId(server_info: dict<any>): string
+  if expand('%:e') == 'tfvars'
+    return 'terraform-vars'
+  endif
+  return 'terraform'
+enddef
+
 export def ServerInfo(): dict<any>
   return {
     'name': 'terraform',
     'cmd': ServerCmd,
     'root_uri': (server_info) => utils.FindRootURI(['.git/']),
     'initialization_options': {},
-    'whitelist': ['terraform', 'tf'],
+    'whitelist': ['terraform'],
+    'languageId': LanguageId,
   }
 enddef
