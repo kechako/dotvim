@@ -4,6 +4,7 @@ import "./lsp/utils.vim"
 import "./lsp/cs.vim"
 import "./lsp/dart.vim"
 import "./lsp/go.vim"
+import "./lsp/python.vim"
 import "./lsp/rust.vim"
 import "./lsp/swift.vim"
 import "./lsp/terraform.vim"
@@ -78,6 +79,8 @@ autocmd User lsp_setup call lsp#register_server(cs.ServerInfo())
 autocmd User lsp_setup call lsp#register_server(swift.ServerInfo())
 # Terraform
 autocmd User lsp_setup call lsp#register_server(terraform.ServerInfo())
+# Python
+autocmd User lsp_setup call lsp#register_server(python.ServerInfo())
 
 augroup LspInstall
   autocmd!
