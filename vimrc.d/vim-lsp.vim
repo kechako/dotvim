@@ -3,6 +3,7 @@ vim9script
 import "./lsp/utils.vim"
 import "./lsp/cs.vim"
 import "./lsp/dart.vim"
+import "./lsp/efm.vim"
 import "./lsp/go.vim"
 import "./lsp/python.vim"
 import "./lsp/rust.vim"
@@ -81,6 +82,8 @@ autocmd User lsp_setup call lsp#register_server(swift.ServerInfo())
 autocmd User lsp_setup call lsp#register_server(terraform.ServerInfo())
 # Python
 autocmd User lsp_setup call lsp#register_server(python.ServerInfo())
+# efm
+autocmd User lsp_setup call lsp#register_server(efm.ServerInfo())
 
 augroup LspInstall
   autocmd!
