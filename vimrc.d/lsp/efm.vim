@@ -11,24 +11,6 @@ def ServerCmd(server_info: dict<any>): list<string>
   return cmd
 enddef
 
-def WorkspaceConfig(server_info: dict<any>): dict<any>
-  echom &filetype
-  if &filetype == 'python'
-    return {
-      'languages': {
-        'python': [
-          {
-            'formatCommand': 'black --quiet -',
-            'formatStdin': true,
-          },
-        ],
-      },
-    }
-  endif
-
-  return {}
-enddef
-
 export def ServerInfo(): dict<any>
   return {
     'name': 'efm-langserver',
@@ -36,7 +18,7 @@ export def ServerInfo(): dict<any>
     'initialization_options': {
       'documentFormatting': true,
     },
-    'workspace_config': WorkspaceConfig,
+    'workspace_config': {},
     'whitelist': ['python'],
   }
 enddef
