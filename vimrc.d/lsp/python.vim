@@ -13,8 +13,12 @@ def ServerCmd(server_info: dict<any>): list<string>
   endif
 
   final root_path = GetRootPath()
-  if filereadable(root_path .. "/pyproject.toml") && executable('hatch')
-    cmd = ['hatch', 'run'] + cmd
+  if filereadable(root_path .. "/pyproject.toml")
+    if executable('uv')
+      cmd = ['uv', 'run'] + cmd
+    elseif executable('hatch')
+      cmd = ['hatch', 'run'] + cmd
+    endif
   endif
 
   return cmd
