@@ -19,6 +19,6 @@ export def ServerInfo(): dict<any>
       'documentFormatting': true,
     },
     'workspace_config': {},
-    'whitelist': ['python'],
+    'whitelist': ['python', 'markdown'],
   }
 enddef
