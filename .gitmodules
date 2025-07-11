@@ -70,9 +70,9 @@
 	path = pack/plugins/start/vim-fern
 	url = https://github.com/lambdalisue/vim-fern.git
 	ignore = dirty
-[submodule "pack/plugins/start/fern-renderer-nerdfont.vim"]
-	path = pack/plugins/start/fern-renderer-nerdfont.vim
-	url = https://github.com/lambdalisue/fern-renderer-nerdfont.vim.git
+[submodule "pack/plugins/start/vim-fern-renderer-nerdfont"]
+	path = pack/plugins/start/vim-fern-renderer-nerdfont
+	url = https://github.com/lambdalisue/vim-fern-renderer-nerdfont.git
 	ignore = dirty
 [submodule "pack/plugins/start/nerdfont.vim"]
 	path = pack/plugins/start/nerdfont.vim
