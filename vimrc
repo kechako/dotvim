@@ -21,6 +21,8 @@ let &backupdir = s:vimfilesdir . '/backup'
 " undo ファイルを作成
 set undofile
 let &undodir = s:vimfilesdir . '/undo'
+" 日本語 Help を優先する
+set helplang=ja,en
 
 " コマンドライン履歴を50行保存
 set history=50
