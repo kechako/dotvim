@@ -66,9 +66,9 @@
 [submodule "pack/plugins/start/plantuml-syntax"]
 	path = pack/plugins/start/plantuml-syntax
 	url = https://github.com/aklt/plantuml-syntax.git
-[submodule "pack/plugins/start/fern.vim"]
-	path = pack/plugins/start/fern.vim
-	url = https://github.com/lambdalisue/fern.vim.git
+[submodule "pack/plugins/start/vim-fern"]
+	path = pack/plugins/start/vim-fern
+	url = https://github.com/lambdalisue/vim-fern.git
 	ignore = dirty
 [submodule "pack/plugins/start/fern-renderer-nerdfont.vim"]
 	path = pack/plugins/start/fern-renderer-nerdfont.vim
