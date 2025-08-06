@@ -41,13 +41,13 @@ def OnLspBufferEnabled()
   setlocal omnifunc=lsp#complete
   setlocal signcolumn=yes
 
-  nmap <buffer><silent> gd         <plug>(lsp-definition)
+  nmap <buffer><silent> gdd        <plug>(lsp-definition)
   nmap <buffer><silent> <C-]>      <plug>(lsp-definition)
 
   nmap <buffer><silent> ga         <plug>(lsp-code-action)
   nmap <buffer><silent> gr         <plug>(lsp-references)
   nmap <buffer><silent> gi         <plug>(lsp-implementation)
-  nmap <buffer><silent> gt         <plug>(lsp-type-definition)
+  nmap <buffer><silent> gdt        <plug>(lsp-type-definition)
   nmap <buffer><silent> K          <plug>(lsp-hover)
   nmap <buffer><silent> gp         <plug>(lsp-previous-diagnostic)
   nmap <buffer><silent> gn         <plug>(lsp-next-diagnostic)
