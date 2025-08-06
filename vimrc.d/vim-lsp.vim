@@ -18,10 +18,10 @@ g:lsp_async_completion = 1
 g:lsp_diagnostics_echo_cursor = 1
 g:lsp_diagnostics_float_cursor = 1
 g:lsp_diagnostics_signs_enabled = 1
-g:lsp_diagnostics_signs_error = {'text': '✗'}
-g:lsp_diagnostics_signs_warning = {'text': '‼'}
-g:lsp_diagnostics_signs_information = {'text': 'ii'}
-g:lsp_diagnostics_signs_hint = {'text': '??'}
+g:lsp_diagnostics_signs_error = {'text': ''}
+g:lsp_diagnostics_signs_warning = {'text': ''}
+g:lsp_diagnostics_signs_information = {'text': ''}
+g:lsp_diagnostics_signs_hint = {'text': ''}
 
 g:lsp_diagnostics_virtual_text_insert_mode_enabled = 1
 g:lsp_diagnostics_virtual_text_prefix = "》"
