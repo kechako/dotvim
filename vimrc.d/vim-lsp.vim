@@ -1,6 +1,7 @@
 vim9script
 
 import "./lsp/utils.vim"
+import "./lsp/copilot.vim"
 import "./lsp/cs.vim"
 import "./lsp/dart.vim"
 import "./lsp/efm.vim"
@@ -62,6 +63,8 @@ def OnLspBufferEnabled()
   g:lsp_format_sync_timeout = 1000
   autocmd! BufWritePre *.go call go.Format()
   autocmd! BufWritePre *.cs,go.mod,go.work,*.tmpl,*.js,*.mjs,*.jsx,*.ts,*.mts,*.tsx,*.py,*.rs,*.swift,*.zig,*.dart,*.tf,*.md,*.proto,*.toml call execute('LspDocumentFormatSync')
+
+  copilot.OnLspBufferEnabled()
 enddef
 
 # Go
@@ -84,6 +87,8 @@ autocmd User lsp_setup call lsp#register_server(terraform.ServerInfo())
 autocmd User lsp_setup call lsp#register_server(python.ServerInfo())
 # efm
 autocmd User lsp_setup call lsp#register_server(efm.ServerInfo())
+# copilot
+autocmd User lsp_setup call lsp#register_server(copilot.ServerInfo())
 
 augroup LspInstall
   autocmd!

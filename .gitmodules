@@ -110,10 +110,6 @@
 	path = pack/plugins/start/previm
 	url = https://github.com/previm/previm.git
 	ignore = dirty
-[submodule "pack/plugins/start/copilot.vim"]
-	path = pack/plugins/start/copilot.vim
-	url = https://github.com/github/copilot.vim.git
-	ignore = dirty
 [submodule "pack/plugins/start/vimdoc-ja"]
 	path = pack/plugins/start/vimdoc-ja
 	url = https://github.com/vim-jp/vimdoc-ja.git
