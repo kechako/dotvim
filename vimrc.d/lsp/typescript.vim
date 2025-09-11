@@ -129,7 +129,7 @@ export def ServerInfo(): dict<any>
     'cmd': ServerCmd,
     'root_uri': TypeScriptRootURI,
     'workspace_config': TypeScriptWorkspaceConfig,
-    'whitelist': [
+    'allowlist': [
       'javascript',
       'javascriptreact',
       'typescript',

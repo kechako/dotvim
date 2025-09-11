@@ -19,7 +19,7 @@ export def ServerInfo(): dict<any>
       'documentFormatting': true,
     },
     'workspace_config': {},
-    'whitelist': [
+    'allowlist': [
       'markdown',
       'proto',
       'python',

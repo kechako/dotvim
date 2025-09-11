@@ -31,6 +31,6 @@ export def ServerInfo(): dict<any>
     'root_uri': (server_info) => GetRootPath(),
     'initialization_options': {
     },
-    'whitelist': ['python'],
+    'allowlist': ['python'],
   }
 enddef

@@ -35,6 +35,6 @@ export def ServerInfo(): dict<any>
     'name': 'swift',
     'cmd': ServerCmd,
     'root_uri': (server_info) => utils.FindRootURI(['Pacakge.swift']),
-    'whitelist': ['swift', 'metal', 'objective-c', 'objective-cpp'],
+    'allowlist': ['swift', 'metal', 'objective-c', 'objective-cpp'],
   }
 enddef

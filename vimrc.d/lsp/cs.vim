@@ -30,7 +30,7 @@ export def ServerInfo(): dict<any>
     'name': 'csharp',
     'cmd': ServerCmd,
     'root_uri': (server_info) => FindCSharpProjectRootURI(),
-    'whitelist': [
+    'allowlist': [
       'cs',
     ],
   }

@@ -17,6 +17,6 @@ export def ServerInfo(): dict<any>
     'cmd': ServerCmd,
     'root_uri': (server_info) => utils.FindRootURI(['.git/']),
     'initialization_options': {},
-    'whitelist': ['zig'],
+    'allowlist': ['zig'],
   }
 enddef

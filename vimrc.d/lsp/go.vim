@@ -87,6 +87,6 @@ export def ServerInfo(): dict<any>
       'symbolScope': 'all',
       'verboseOutput': false,
     },
-    'whitelist': ['go', 'gomod', 'gowork', 'template'],
+    'allowlist': ['go', 'gomod', 'gowork', 'template'],
   }
 enddef

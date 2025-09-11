@@ -26,6 +26,6 @@ export def ServerInfo(): dict<any>
         'enable': true,
       },
     },
-    'whitelist': ['rust'],
+    'allowlist': ['rust'],
   }
 enddef

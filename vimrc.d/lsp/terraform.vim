@@ -24,7 +24,7 @@ export def ServerInfo(): dict<any>
     'cmd': ServerCmd,
     'root_uri': (server_info) => utils.FindRootURI(['.git/']),
     'initialization_options': {},
-    'whitelist': ['terraform'],
+    'allowlist': ['terraform'],
     'languageId': LanguageId,
   }
 enddef

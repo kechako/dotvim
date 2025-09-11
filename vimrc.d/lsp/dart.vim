@@ -18,6 +18,6 @@ export def ServerInfo(): dict<any>
     'root_uri': (server_info) => utils.FindRootURI(['pubspec.yaml', '.git/']),
     'initialization_options': {
     },
-    'whitelist': ['dart'],
+    'allowlist': ['dart'],
   }
 enddef
