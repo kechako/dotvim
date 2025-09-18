@@ -28,6 +28,7 @@ export def ServerInfo(): dict<any>
     },
     'workspace_config': {},
     'allowlist': ['*'],
+    'blocklist': ['fern'],
   }
 enddef
 
