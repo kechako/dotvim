@@ -150,9 +150,6 @@ if &t_Co > 2 || has("gui_running")
     if $COLORTERM =~? 'truecolor\|24bit'
       " True Color 有効化
       set termguicolors
-
-      let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
-      let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
     endif
 
     " 256色以上の場合
