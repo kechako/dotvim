@@ -161,6 +161,8 @@ if &t_Co > 2 || has("gui_running")
     endif
   endif
 
+  let g:iceberg_specialkey_ws = 0
+
   " 背景を透過する
   if &termguicolors
     hi Normal guibg=NONE
