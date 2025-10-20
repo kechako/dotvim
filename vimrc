@@ -138,6 +138,9 @@ if &t_Co > 2 || has("gui_running")
   " 検索時のハイライト表示を on
   set hlsearch
 
+  " Iceberg 用の設定
+  let g:iceberg_specialkey_ws = 0
+
   if has("win32")
     " True Color 有効化
     set termguicolors
@@ -160,8 +163,6 @@ if &t_Co > 2 || has("gui_running")
       set background=dark
     endif
   endif
-
-  let g:iceberg_specialkey_ws = 0
 
   " 背景を透過する
   if &termguicolors
