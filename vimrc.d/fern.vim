@@ -8,6 +8,14 @@ def FernSetup()
   nmap <buffer>
         \ <Plug>(fern-action-open)
         \ <Plug>(fern-action-open:select)
+  # 行番号の表示桁数を2桁にする
+  setlocal numberwidth=2
+  # 目印の表示を消す
+  setlocal signcolumn=no
+  # 折り畳みの表示を消す
+  setlocal foldcolumn=0
+  # ウィンドウにバッファーを固定する
+  setlocal winfixbuf
 enddef
 
 def CanOpenFern(): bool
