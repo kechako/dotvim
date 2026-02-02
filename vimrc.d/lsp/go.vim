@@ -16,6 +16,27 @@ def ServerCmd(server_info: dict<any>): list<string>
   return cmd
 enddef
 
+def GoWorkspaceConfig(server_info: dict<any>): dict<any>
+  const path = utils.FindRootPath(['.vscode/']) .. '/.vscode/settings.json'
+  if filereadable(path)
+    try
+      const settings = readfile(path)->join('')->json_decode()
+      const local = settings->get('gopls')->get('formatting.local', '')
+      if local != ''
+        return {
+          'gopls': {
+            'local': local,
+          },
+        }
+      endif
+    catch
+      return {}
+    endtry
+  endif
+
+  return {}
+enddef
+
 export def ServerInfo(): dict<any>
   return {
     'name': 'golang',
@@ -29,6 +50,7 @@ export def ServerInfo(): dict<any>
       'templateExtensions': [],
       'expandWorkspaceToModule': true,
       'standaloneTags': ['ignore'],
+      'workspaceFiles': [],
 
       # Formatting
       'local': '',
@@ -46,14 +68,18 @@ export def ServerInfo(): dict<any>
         'vendor': false,
       },
       'semanticTokens': false,
-      'noSemanticString': false,
-      'noSemanticNumber': false,
+      'semanticTokenTypes': {},
+      'semanticTokenModifiers': {},
+      'newGoFileHeader': true,
+      'renameMovesSubpackages': false,
+
 
       # Completion
       'usePlaceholders': true,
       'completionBudget': '100ms',
       'matcher': 'Fuzzy',
       'experimentalPostfixCompletions': true,
+      'completeFunctionCalls': true,
 
       # Diagnostic
       'analyses': {},
@@ -66,6 +92,8 @@ export def ServerInfo(): dict<any>
       },
       'vulncheck': 'Imports',
       'diagnosticsDelay': '400ms',
+      'diagnosticsTrigger': 'Edit',
+      'analysisProgressReporting': true,
 
       # Documentation
       'hoverKind': 'FullDocumentation',
@@ -87,6 +115,7 @@ export def ServerInfo(): dict<any>
       'symbolScope': 'all',
       'verboseOutput': false,
     },
+    'workspace_config': GoWorkspaceConfig,
     'allowlist': ['go', 'gomod', 'gowork', 'template'],
   }
 enddef
