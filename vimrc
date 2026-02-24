@@ -134,14 +134,15 @@ if &t_Co > 2 || has("gui_running")
   " 検索時のハイライト表示を on
   set hlsearch
 
-  " Iceberg 用の設定
-  let g:iceberg_specialkey_ws = 0
+  " Gruvbox の設定
+  let g:gruvbox_transparent_bg = 1 " この設定は現在機能していないっぽい
+  let g:gruvbox_contrast_dark = "midium"
 
   if has("win32")
     " True Color 有効化
     set termguicolors
     " カラーテーマ設定
-    colorscheme iceberg
+    colorscheme gruvbox
     " ダークテーマに設定
     set background=dark
   else
@@ -154,16 +155,21 @@ if &t_Co > 2 || has("gui_running")
     " 256色以上の場合
     if &t_Co >= 256 || has("gui_running")
       " カラーテーマ設定
-      colorscheme iceberg
+      colorscheme gruvbox
       " ダークテーマに設定
       set background=dark
     endif
   endif
 
-  " 背景を透過する
   if &termguicolors
+    " デフォルトの設定だと色が見えないのでコントラストを上げる
+    hi! link NonText GruvboxBg4
+    hi! link SpecialKey GruvboxBg3
+
+    " 背景を透過する
     hi Normal guibg=NONE
   else
+    " 背景を透過する
     hi Normal ctermbg=NONE
   endif
 
@@ -190,7 +196,7 @@ if &t_Co > 2 || has("gui_running")
     \   'lsperror': 'error',
     \   'lspwarning': 'warning'
     \ },
-    \ 'colorscheme': 'iceberg'
+    \ 'colorscheme': 'gruvbox'
     \ }
   function! LightLineFiletype()
     return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
