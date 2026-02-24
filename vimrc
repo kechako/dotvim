@@ -71,6 +71,9 @@ set ttimeoutlen=50
 " C-A や C-X によるインクリメント、デクリメントで負号を無視する
 set nrformats+=unsigned
 
+set fillchars+=vert:│
+set fillchars+=fold:─
+
 " <C-p>, <C-n> による履歴の参照の動作を <Up>, <Down> に合わせる
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
