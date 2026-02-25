@@ -58,6 +58,7 @@ set ambiwidth=single
 let g:netrw_liststyle=1
 " .netrwhist 及び .netrwbook の格納場所
 let g:netrw_home=$XDG_DATA_HOME .. '/vim/netrw'
+call mkdir(g:netrw_home, 'p')
 " コマンドラインの高さ
 set cmdheight=4
 " 行番号
