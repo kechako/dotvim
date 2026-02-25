@@ -1,5 +1,5 @@
 function s:build_plugins_helptag() abort
-  let l:docs = finddir('doc', expand('~/.vim/pack/plugins/start') . '/*/', -1)
+  let l:docs = finddir('doc', expand('$MYVIMDIR/pack/plugins/start') . '/*/', -1)
 
   if empty(l:docs)
     return
