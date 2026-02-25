@@ -117,3 +117,4 @@
 [submodule "pack/plugins/start/gruvbox"]
 	path = pack/plugins/start/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
+	ignore = dirty
