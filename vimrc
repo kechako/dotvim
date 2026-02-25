@@ -6,26 +6,31 @@ set encoding=utf-8
 " insert mode でバックスペースで削除可能な文字の設定
 set backspace=indent,eol,start
 
-" vimfiles
-let s:vimfilesdir = $HOME . '/.vim'
-if has("win32")
-  " for windows
-  let s:vimfilesdir = $HOME . '/vimfiles'
-endif
-" スワップファイルを作成
+let $XDG_CACHE_HOME = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
+let $XDG_STATE_HOME = empty($XDG_STATE_HOME) ? expand('~/.local/state') : $XDG_STATE_HOME
+let $XDG_DATA_HOME = empty($XDG_DATA_HOME) ? expand('~/.local/share') : $XDG_DATA_HOME
+
+" viminfo
+set viminfofile=$XDG_STATE_HOME/vim/viminfo
+" スワップファイル
+set directory=$XDG_STATE_HOME/vim/swap//
+" バックアップファイル
+set backupdir=$XDG_STATE_HOME/vim/backup//
+" Undo ファイル
+set undodir=$XDG_DATA_HOME/vim/undo//
+" 各ディレクトリが存在しない場合は自動作成
+call mkdir(&directory, 'p')
+call mkdir(&backupdir, 'p')
+call mkdir(&undodir, 'p')
+" 機能を有効化
 set swapfile
-let &directory = s:vimfilesdir . '/swap'
-" バックアップファイルを作成
 set backup
-let &backupdir = s:vimfilesdir . '/backup'
-" undo ファイルを作成
 set undofile
-let &undodir = s:vimfilesdir . '/undo'
+
 " 日本語 Help を優先する
 set helplang=ja,en
-
 " コマンドライン履歴を50行保存
-set history=50
+set history=1000
 " カーソル位置を常時表示
 set ruler
 " カーソル行をハイライト
@@ -52,7 +57,7 @@ set ambiwidth=single
 " netrw にてファイル名、サイズ、タイムスタンプをデフォルト表示
 let g:netrw_liststyle=1
 " .netrwhist 及び .netrwbook の格納場所
-let g:netrw_home=expand("$HOME/.vim/netrw")
+let g:netrw_home=$XDG_DATA_HOME .. '/vim/netrw'
 " コマンドラインの高さ
 set cmdheight=4
 " 行番号
