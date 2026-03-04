@@ -104,7 +104,7 @@
 	ignore = dirty
 [submodule "pack/plugins/start/zig.vim"]
 	path = pack/plugins/start/zig.vim
-	url = https://github.com/ziglang/zig.vim.git
+	url = https://codeberg.org/ziglang/zig.vim.git
 	ignore = dirty
 [submodule "pack/plugins/start/previm"]
 	path = pack/plugins/start/previm
