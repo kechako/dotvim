@@ -147,3 +147,7 @@
 	url = https://github.com/gruvbox-community/gruvbox.git
 	ignore = dirty
 	branch = master
+[submodule "pack/plugins/start/catppuccin"]
+	path = pack/plugins/start/catppuccin
+	url = https://github.com/catppuccin/vim.git
+	branch = main
