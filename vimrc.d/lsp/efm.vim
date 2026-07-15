@@ -24,6 +24,7 @@ export def ServerInfo(): dict<any>
       'proto',
       'python',
       'toml',
+      'yaml',
     ],
   }
 enddef
