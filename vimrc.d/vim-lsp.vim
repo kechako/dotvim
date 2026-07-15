@@ -33,6 +33,8 @@ g:lsp_inlay_hints_mode = {
   'normal': ['curline'],
 }
 
+g:lsp_semantic_enabled = 1
+
 # hightlight references
 highlight lspReference ctermbg=235 ctermfg=216 guibg=#1e2132 guifg=#e2a478
 

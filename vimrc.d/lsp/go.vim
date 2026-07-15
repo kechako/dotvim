@@ -67,7 +67,7 @@ export def ServerInfo(): dict<any>
         'upgrade_dependency': true,
         'vendor': false,
       },
-      'semanticTokens': false,
+      'semanticTokens': true,
       'semanticTokenTypes': {},
       'semanticTokenModifiers': {},
       'newGoFileHeader': true,
