@@ -33,18 +33,20 @@ export def ServerInfo(): dict<any>
 enddef
 
 export def OnLspBufferEnabled(): void
-  command! -buffer -nargs=0 CopilotSignIn call lsp#send_request('copilot', {
+  final signin_req = {
     'method': 'signIn',
     'params': {},
     'sync': v:false,
     'on_notification': CopilotHandleSignin,
-  })
-  command! -buffer -nargs=0 CopilotSignOut call lsp#send_request('copilot', {
+  }
+  command! -buffer -nargs=0 CopilotSignIn call lsp#send_request('copilot', signin_req)
+  final signout_req = {
     'method': 'signOut',
     'params': {},
     'sync': v:false,
     'on_notification': CopilotHandleSignout,
-  })
+  }
+  command! -buffer -nargs=0 CopilotSignOut call lsp#send_request('copilot', signout_req)
 enddef
 
 def CopilotHandleFinish(data: dict<any>): void
