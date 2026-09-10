@@ -108,7 +108,9 @@ nmap <SID>ws <Nop>
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
 
 " grep プログラム設定
-if executable('jvgrep')
+if executable('rg')
+  set grepprg=rg\ --vimgrep
+elseif executable('jvgrep')
   set grepprg=jvgrep
 endif
 " grep を silent で実行する Grep コマンドを定義
